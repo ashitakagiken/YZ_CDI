@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>YZ_CDI_PROT_1.0</name>
+            <creation-uuid>2961abb2-a186-4dc7-b354-15a6604c5e62</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>Shift_JIS</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../../YZ_CDI/YZ_CDI_PROT_V1</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>NewConfiguration</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
