@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Sun Dec 29 10:41:03 2024
+                                                                                               Sat Feb 08 11:42:21 2025
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	16F15245
@@ -700,27 +700,27 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    686                           	psect	stringtext1
    687     1000                     __pstringtext1:
    688     1000                     _min_ret_table:
-   689     1000  3414               	retlw	20
+   689     1000  34DC               	retlw	220
    690     1001  3405               	retlw	5
-   691     1002  344C               	retlw	76
-   692     1003  3404               	retlw	4
-   693     1004  3484               	retlw	132
-   694     1005  3403               	retlw	3
-   695     1006  34BC               	retlw	188
-   696     1007  3402               	retlw	2
+   691     1002  3414               	retlw	20
+   692     1003  3405               	retlw	5
+   693     1004  344C               	retlw	76
+   694     1005  3404               	retlw	4
+   695     1006  3484               	retlw	132
+   696     1007  3403               	retlw	3
    697     1008                     __end_of_min_ret_table:
    698                           
    699                           	psect	stringtext2
    700     1008                     __pstringtext2:
    701     1008                     _max_adv_table:
-   702     1008  3434               	retlw	52
-   703     1009  3408               	retlw	8
-   704     100A  3408               	retlw	8
-   705     100B  3407               	retlw	7
-   706     100C  34DC               	retlw	220
-   707     100D  3405               	retlw	5
-   708     100E  34B0               	retlw	176
-   709     100F  3404               	retlw	4
+   702     1008  348C               	retlw	140
+   703     1009  340A               	retlw	10
+   704     100A  34FC               	retlw	252
+   705     100B  3408               	retlw	8
+   706     100C  346C               	retlw	108
+   707     100D  3407               	retlw	7
+   708     100E  34DC               	retlw	220
+   709     100F  3405               	retlw	5
    710     1010                     __end_of_max_adv_table:
    711                           
    712                           	psect	stringtext3
@@ -1259,7 +1259,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1245 ;;
   1246 ;; *************** function _main *****************
   1247 ;; Defined at:
-  1248 ;;		line 151 in file "main.c"
+  1248 ;;		line 154 in file "main.c"
   1249 ;; Parameters:    Size  Location     Type
   1250 ;;		None
   1251 ;; Auto vars:     Size  Location     Type
@@ -1302,28 +1302,28 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1283                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0+pclath+cstack]
   1284                           
   1285                           
-  1286                           ;main.c: 152:     initialize_system();
+  1286                           ;main.c: 155:     initialize_system();
   1287     0F80  3187  2706  318F   	fcall	_initialize_system
   1288     0F83                     l1722:
   1289                           
-  1290                           ;main.c: 153:     LATC2 = (0);
+  1290                           ;main.c: 156:     LATC2 = (0);
   1291     0F83  0140               	movlb	0	; select bank0
   1292     0F84  111A               	bcf	26,2	;volatile
   1293     0F85                     l1724:
   1294                           
-  1295                           ;main.c: 154:     check_sw_state();
+  1295                           ;main.c: 157:     check_sw_state();
   1296     0F85  3186  26A0  318F   	fcall	_check_sw_state
   1297     0F88                     l1726:
   1298                           
-  1299                           ;main.c: 155:     calc_map();
+  1299                           ;main.c: 158:     calc_map();
   1300     0F88  3183  2358  318F   	fcall	_calc_map
   1301     0F8B                     l1728:
   1302                           
-  1303                           ;main.c: 156:     ccp1_enable();
+  1303                           ;main.c: 159:     ccp1_enable();
   1304     0F8B  318F  2755  318F   	fcall	_ccp1_enable
   1305     0F8E                     l1730:
   1306                           
-  1307                           ;main.c: 158:         check_sw_state();
+  1307                           ;main.c: 161:         check_sw_state();
   1308     0F8E  3186  26A0  318F   	fcall	_check_sw_state
   1309     0F91  2F8E               	goto	l1730
   1310     0F92  3181  295A         	ljmp	start
@@ -1333,7 +1333,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1314     0706                     __ptext1:	
   1315 ;; *************** function _initialize_system *****************
   1316 ;; Defined at:
-  1317 ;;		line 392 in file "main.c"
+  1317 ;;		line 394 in file "main.c"
   1318 ;; Parameters:    Size  Location     Type
   1319 ;;		None
   1320 ;; Auto vars:     Size  Location     Type
@@ -1374,216 +1374,216 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1350                           ; Regs used in _initialize_system: [wreg+status,2+status,0+pclath+cstack]
   1351                           
   1352                           
-  1353                           ;main.c: 394:     OSCEN = 0x40;
+  1353                           ;main.c: 396:     OSCEN = 0x40;
   1354     0706  3040               	movlw	64
   1355     0707  0151               	movlb	17	; select bank17
   1356     0708  0091               	movwf	17	;volatile
   1357                           
-  1358                           ;main.c: 395:     OSCFRQ = 0x05;
+  1358                           ;main.c: 397:     OSCFRQ = 0x05;
   1359     0709  3005               	movlw	5
   1360     070A  0093               	movwf	19	;volatile
   1361     070B                     l1450:
   1362                           
-  1363                           ;main.c: 396:     OSCTUNE = 0X00;
+  1363                           ;main.c: 398:     OSCTUNE = 0X00;
   1364     070B  0192               	clrf	18	;volatile
   1365     070C                     l1452:
   1366                           
-  1367                           ;main.c: 399:     PORTA = 0x00;
+  1367                           ;main.c: 401:     PORTA = 0x00;
   1368     070C  0140               	movlb	0	; select bank0
   1369     070D  018C               	clrf	12	;volatile
   1370     070E                     l1454:
   1371                           
-  1372                           ;main.c: 400:     PORTB = 0x00;
+  1372                           ;main.c: 402:     PORTB = 0x00;
   1373     070E  018D               	clrf	13	;volatile
   1374     070F                     l1456:
   1375                           
-  1376                           ;main.c: 401:     PORTC = 0x00;
+  1376                           ;main.c: 403:     PORTC = 0x00;
   1377     070F  018E               	clrf	14	;volatile
   1378     0710                     l1458:
   1379                           
-  1380                           ;main.c: 402:     LATA = 0x00;
+  1380                           ;main.c: 404:     LATA = 0x00;
   1381     0710  0198               	clrf	24	;volatile
   1382     0711                     l1460:
   1383                           
-  1384                           ;main.c: 403:     LATB = 0x00;
+  1384                           ;main.c: 405:     LATB = 0x00;
   1385     0711  0199               	clrf	25	;volatile
   1386     0712                     l1462:
   1387                           
-  1388                           ;main.c: 404:     LATC = 0x00;
+  1388                           ;main.c: 406:     LATC = 0x00;
   1389     0712  019A               	clrf	26	;volatile
   1390     0713                     l1464:
   1391                           
-  1392                           ;main.c: 405:     ANSELA = 0x00;
+  1392                           ;main.c: 407:     ANSELA = 0x00;
   1393     0713  017E               	movlb	62	; select bank62
   1394     0714  01B8               	clrf	56	;volatile
   1395     0715                     l1466:
   1396                           
-  1397                           ;main.c: 406:     ANSELB = 0x00;
+  1397                           ;main.c: 408:     ANSELB = 0x00;
   1398     0715  01C3               	clrf	67	;volatile
   1399     0716                     l1468:
   1400                           
-  1401                           ;main.c: 407:     ANSELC = 0x00;
+  1401                           ;main.c: 409:     ANSELC = 0x00;
   1402     0716  01CE               	clrf	78	;volatile
   1403                           
-  1404                           ;main.c: 410:     TRISA = 0b00110100;
+  1404                           ;main.c: 412:     TRISA = 0b00110100;
   1405     0717  3034               	movlw	52
   1406     0718  0140               	movlb	0	; select bank0
   1407     0719  0092               	movwf	18	;volatile
   1408                           
-  1409                           ;main.c: 411:     TRISB = 0b11110000;
+  1409                           ;main.c: 413:     TRISB = 0b11110000;
   1410     071A  30F0               	movlw	240
   1411     071B  0093               	movwf	19	;volatile
   1412                           
-  1413                           ;main.c: 412:     TRISC = 0b11111001;
+  1413                           ;main.c: 414:     TRISC = 0b11111001;
   1414     071C  30F9               	movlw	249
   1415     071D  0094               	movwf	20	;volatile
   1416                           
-  1417                           ;main.c: 413:     INLVLA = 0b00110100;
+  1417                           ;main.c: 415:     INLVLA = 0b00110100;
   1418     071E  3034               	movlw	52
   1419     071F  017E               	movlb	62	; select bank62
   1420     0720  00BC               	movwf	60	;volatile
   1421                           
-  1422                           ;main.c: 414:     INLVLB = 0b11110000;
+  1422                           ;main.c: 416:     INLVLB = 0b11110000;
   1423     0721  30F0               	movlw	240
   1424     0722  00C7               	movwf	71	;volatile
   1425                           
-  1426                           ;main.c: 415:     INLVLC = 0b11111001;
+  1426                           ;main.c: 417:     INLVLC = 0b11111001;
   1427     0723  30F9               	movlw	249
   1428     0724  00D2               	movwf	82	;volatile
   1429                           
-  1430                           ;main.c: 418:     T1CLK = 0b00000001;
+  1430                           ;main.c: 420:     T1CLK = 0b00000001;
   1431     0725  3001               	movlw	1
   1432     0726  0144               	movlb	4	; select bank4
   1433     0727  0091               	movwf	17	;volatile
   1434                           
-  1435                           ;main.c: 419:     T1CON = 0b00110000;
+  1435                           ;main.c: 421:     T1CON = 0b00110000;
   1436     0728  3030               	movlw	48
   1437     0729  008E               	movwf	14	;volatile
   1438     072A                     l1470:
   1439                           
-  1440                           ;main.c: 420:     TMR1 = 0x0000;
+  1440                           ;main.c: 422:     TMR1 = 0x0000;
   1441     072A  018C               	clrf	12	;volatile
   1442     072B  018D               	clrf	13	;volatile
   1443     072C                     l1472:
   1444                           
-  1445                           ;main.c: 425:     CCP1CAP = 0x0;
+  1445                           ;main.c: 427:     CCP1CAP = 0x0;
   1446     072C  0146               	movlb	6	; select bank6
   1447     072D  018F               	clrf	15	;volatile
   1448     072E                     l1474:
   1449                           
-  1450                           ;main.c: 426:     CCP2CAP = 0x0;
+  1450                           ;main.c: 428:     CCP2CAP = 0x0;
   1451     072E  0193               	clrf	19	;volatile
   1452     072F                     l1476:
   1453                           
-  1454                           ;main.c: 427:     CCPR1 = 0x0000;
+  1454                           ;main.c: 429:     CCPR1 = 0x0000;
   1455     072F  018C               	clrf	12	;volatile
   1456     0730  018D               	clrf	13	;volatile
   1457     0731                     l1478:
   1458                           
-  1459                           ;main.c: 428:     CCPR2 = 0x0000;
+  1459                           ;main.c: 430:     CCPR2 = 0x0000;
   1460     0731  0190               	clrf	16	;volatile
   1461     0732  0191               	clrf	17	;volatile
   1462     0733                     l1480:
   1463                           
-  1464                           ;main.c: 431:     IOCAN2 = 1;
+  1464                           ;main.c: 433:     IOCAN2 = 1;
   1465     0733  017E               	movlb	62	; select bank62
   1466     0734  153E               	bsf	62,2	;volatile
   1467     0735                     l1482:
   1468                           
-  1469                           ;main.c: 434:     PPSLOCK = 0x55;
+  1469                           ;main.c: 436:     PPSLOCK = 0x55;
   1470     0735  3055               	movlw	85
   1471     0736  017D               	movlb	61	; select bank61
   1472     0737  008F               	movwf	15	;volsfr
   1473     0738                     l1484:
   1474                           
-  1475                           ;main.c: 435:     PPSLOCK = 0xAA;
+  1475                           ;main.c: 437:     PPSLOCK = 0xAA;
   1476     0738  30AA               	movlw	170
   1477     0739  008F               	movwf	15	;volsfr
   1478     073A                     l1486:
   1479                           
-  1480                           ;main.c: 436:     PPSLOCKbits.PPSLOCKED = 0;
+  1480                           ;main.c: 438:     PPSLOCKbits.PPSLOCKED = 0;
   1481     073A  100F               	bcf	15,0	;volsfr
   1482     073B                     l1488:
   1483                           
-  1484                           ;main.c: 437:     CCP1PPS = 0x10;
+  1484                           ;main.c: 439:     CCP1PPS = 0x10;
   1485     073B  3010               	movlw	16
   1486     073C  00A1               	movwf	33	;volatile
   1487     073D                     l1490:
   1488                           
-  1489                           ;main.c: 438:     CCP2PPS = 0b00010001;
+  1489                           ;main.c: 440:     CCP2PPS = 0b00010001;
   1490     073D  3011               	movlw	17
   1491     073E  00A2               	movwf	34	;volatile
   1492     073F                     l1492:
   1493                           
-  1494                           ;main.c: 439:     RC1PPS = 0x02;
+  1494                           ;main.c: 441:     RC1PPS = 0x02;
   1495     073F  3002               	movlw	2
   1496     0740  017E               	movlb	62	; select bank62
   1497     0741  00A1               	movwf	33	;volatile
   1498     0742                     l1494:
   1499                           
-  1500                           ;main.c: 440:     PPSLOCK = 0x55;
+  1500                           ;main.c: 442:     PPSLOCK = 0x55;
   1501     0742  3055               	movlw	85
   1502     0743  017D               	movlb	61	; select bank61
   1503     0744  008F               	movwf	15	;volsfr
   1504     0745                     l1496:
   1505                           
-  1506                           ;main.c: 441:     PPSLOCK = 0xAA;
+  1506                           ;main.c: 443:     PPSLOCK = 0xAA;
   1507     0745  30AA               	movlw	170
   1508     0746  008F               	movwf	15	;volsfr
   1509     0747                     l1498:
   1510                           
-  1511                           ;main.c: 442:     PPSLOCKbits.PPSLOCKED = 1;
+  1511                           ;main.c: 444:     PPSLOCKbits.PPSLOCKED = 1;
   1512     0747  140F               	bsf	15,0	;volsfr
   1513     0748                     l1500:
   1514                           
-  1515                           ;main.c: 445:     WDTCON = 0x13;
+  1515                           ;main.c: 447:     WDTCON = 0x13;
   1516     0748  3013               	movlw	19
   1517     0749  0150               	movlb	16	; select bank16
   1518     074A  008C               	movwf	12	;volatile
   1519     074B                     l1502:
   1520                           
-  1521                           ;main.c: 448:     PIR0 = 0x0;
+  1521                           ;main.c: 450:     PIR0 = 0x0;
   1522     074B  014E               	movlb	14	; select bank14
   1523     074C  018C               	clrf	12	;volatile
   1524     074D                     l1504:
   1525                           
-  1526                           ;main.c: 449:     PIR1 = 0x0;
+  1526                           ;main.c: 451:     PIR1 = 0x0;
   1527     074D  018D               	clrf	13	;volatile
   1528     074E                     l1506:
   1529                           
-  1530                           ;main.c: 450:     PIR2 = 0x0;
+  1530                           ;main.c: 452:     PIR2 = 0x0;
   1531     074E  018E               	clrf	14	;volatile
   1532     074F                     l1508:
   1533                           
-  1534                           ;main.c: 453:     GIE = 1;
+  1534                           ;main.c: 455:     GIE = 1;
   1535     074F  178B               	bsf	11,7	;volatile
   1536     0750                     l1510:
   1537                           
-  1538                           ;main.c: 454:     PEIE = 1;
+  1538                           ;main.c: 456:     PEIE = 1;
   1539     0750  170B               	bsf	11,6	;volatile
   1540     0751                     l1512:
   1541                           
-  1542                           ;main.c: 455:     CCP1IE = 1;
+  1542                           ;main.c: 457:     CCP1IE = 1;
   1543     0751  1797               	bsf	23,7	;volatile
   1544     0752                     l1514:
   1545                           
-  1546                           ;main.c: 456:     CCP2IE = 1;
+  1546                           ;main.c: 458:     CCP2IE = 1;
   1547     0752  1798               	bsf	24,7	;volatile
   1548     0753                     l1516:
   1549                           
-  1550                           ;main.c: 457:     TMR1IE = 1;
+  1550                           ;main.c: 459:     TMR1IE = 1;
   1551     0753  1697               	bsf	23,5	;volatile
   1552     0754                     l1518:
   1553                           
-  1554                           ;main.c: 458:     IOCIE = 1;
+  1554                           ;main.c: 460:     IOCIE = 1;
   1555     0754  1616               	bsf	22,4	;volatile
   1556     0755                     l1520:
   1557                           
-  1558                           ;main.c: 460:     ccp2_disable();
+  1558                           ;main.c: 462:     ccp2_disable();
   1559     0755  318F  273E  3187   	fcall	_ccp2_disable
   1560     0758                     l1522:
   1561                           
-  1562                           ;main.c: 461:     LATC1 = 0;
+  1562                           ;main.c: 463:     LATC1 = 0;
   1563     0758  0140               	movlb	0	; select bank0
   1564     0759  109A               	bcf	26,1	;volatile
   1565     075A                     l262:
@@ -1594,7 +1594,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1570     0F3E                     __ptext2:	
   1571 ;; *************** function _ccp2_disable *****************
   1572 ;; Defined at:
-  1573 ;;		line 383 in file "main.c"
+  1573 ;;		line 385 in file "main.c"
   1574 ;; Parameters:    Size  Location     Type
   1575 ;;		None
   1576 ;; Auto vars:     Size  Location     Type
@@ -1635,12 +1635,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1606                           ; Regs used in _ccp2_disable: [status,2]
   1607                           
   1608                           
-  1609                           ;main.c: 384:     CCP2IE = 0;
+  1609                           ;main.c: 386:     CCP2IE = 0;
   1610     0F3E  014E               	movlb	14	; select bank14
   1611     0F3F  1398               	bcf	24,7	;volatile
   1612     0F40                     l1328:
   1613                           
-  1614                           ;main.c: 385:     CCP2CON = 0;
+  1614                           ;main.c: 387:     CCP2CON = 0;
   1615     0F40  0146               	movlb	6	; select bank6
   1616     0F41  0192               	clrf	18	;volatile
   1617     0F42                     l259:
@@ -1651,7 +1651,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1622     06A0                     __ptext3:	
   1623 ;; *************** function _check_sw_state *****************
   1624 ;; Defined at:
-  1625 ;;		line 212 in file "main.c"
+  1625 ;;		line 215 in file "main.c"
   1626 ;; Parameters:    Size  Location     Type
   1627 ;;		None
   1628 ;; Auto vars:     Size  Location     Type
@@ -1692,24 +1692,24 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1658                           ; Regs used in _check_sw_state: [wreg-fsr0h+status,2+status,0]
   1659                           
   1660                           
-  1661                           ;main.c: 213:     switch (RC5) {
+  1661                           ;main.c: 216:     switch (RC5) {
   1662     06A0  2EA6               	goto	l1530
   1663     06A1                     l201:	
-  1664                           ;main.c: 214:     case 0:
+  1664                           ;main.c: 217:     case 0:
   1665                           
   1666                           
-  1667                           ;main.c: 215:         pwj_state = PWJ_DISABLE;
+  1667                           ;main.c: 218:         pwj_state = PWJ_DISABLE;
   1668     06A1  01CE               	clrf	_pwj_state
   1669     06A2  0ACE               	incf	_pwj_state,f
   1670                           
-  1671                           ;main.c: 216:         break;
+  1671                           ;main.c: 219:         break;
   1672     06A3  2EB6               	goto	l1536
   1673     06A4                     l1526:
   1674                           
-  1675                           ;main.c: 218:         pwj_state = PWJ_ENABLE;
+  1675                           ;main.c: 221:         pwj_state = PWJ_ENABLE;
   1676     06A4  01CE               	clrf	_pwj_state
   1677                           
-  1678                           ;main.c: 219:         break;
+  1678                           ;main.c: 222:         break;
   1679     06A5  2EB6               	goto	l1536
   1680     06A6                     l1530:
   1681     06A6  3000               	movlw	0
@@ -1733,21 +1733,21 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1699     06AF  2EA4               	goto	l1526
   1700     06B0  2EB6               	goto	l1536
   1701     06B1                     l205:	
-  1702                           ;main.c: 222:     case 0:
+  1702                           ;main.c: 225:     case 0:
   1703                           
   1704                           
-  1705                           ;main.c: 223:         revlimit_state = REVLIMIT_DISABLE;
+  1705                           ;main.c: 226:         revlimit_state = REVLIMIT_DISABLE;
   1706     06B1  01CF               	clrf	_revlimit_state
   1707     06B2  0ACF               	incf	_revlimit_state,f
   1708                           
-  1709                           ;main.c: 224:         break;
+  1709                           ;main.c: 227:         break;
   1710     06B3  2EC0               	goto	l1538
   1711     06B4                     l1532:
   1712                           
-  1713                           ;main.c: 226:         revlimit_state = REVLIMIT_ENABLE;
+  1713                           ;main.c: 229:         revlimit_state = REVLIMIT_ENABLE;
   1714     06B4  01CF               	clrf	_revlimit_state
   1715                           
-  1716                           ;main.c: 228:         break;
+  1716                           ;main.c: 230:         break;
   1717     06B5  2EC0               	goto	l1538
   1718     06B6                     l1536:
   1719     06B6  3000               	movlw	0
@@ -1771,7 +1771,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1737     06BF  2EC0               	goto	l1538
   1738     06C0                     l1538:
   1739                           
-  1740                           ;main.c: 231:     sw1_pos = (PORTCbits.RC4 << 1) + PORTCbits.RC3;
+  1740                           ;main.c: 233:     sw1_pos = (PORTCbits.RC4 << 1) + PORTCbits.RC3;
   1741     06C0  0E0E               	swapf	14,w	;volatile
   1742     06C1  3901               	andlw	1
   1743     06C2  0141               	movlb	1	; select bank1
@@ -1791,7 +1791,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1757     06CF  0720               	addwf	??_check_sw_state^(0+128),w
   1758     06D0  00D3               	movwf	_sw1_pos^(0+128)
   1759                           
-  1760                           ;main.c: 232:     sw2_pos = (PORTCbits.RC6 << 1) + PORTCbits.RC7;
+  1760                           ;main.c: 234:     sw2_pos = (PORTCbits.RC6 << 1) + PORTCbits.RC7;
   1761     06D1  0140               	movlb	0	; select bank0
   1762     06D2  0E0E               	swapf	14,w	;volatile
   1763     06D3  0C89               	rrf	9,f
@@ -1812,7 +1812,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1778     06E1  0720               	addwf	??_check_sw_state^(0+128),w
   1779     06E2  00D2               	movwf	_sw2_pos^(0+128)
   1780                           
-  1781                           ;main.c: 233:     sw3_pos = (PORTBbits.RB7 << 1) + PORTBbits.RB6;
+  1781                           ;main.c: 235:     sw3_pos = (PORTBbits.RB7 << 1) + PORTBbits.RB6;
   1782     06E3  0140               	movlb	0	; select bank0
   1783     06E4  0D0D               	rlf	13,w	;volatile
   1784     06E5  0D0D               	rlf	13,w	;volatile
@@ -1833,7 +1833,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1799     06F3  0720               	addwf	??_check_sw_state^(0+128),w
   1800     06F4  00D1               	movwf	_sw3_pos^(0+128)
   1801                           
-  1802                           ;main.c: 234:     sw4_pos = (PORTBbits.RB5 << 1) + PORTBbits.RB4;
+  1802                           ;main.c: 236:     sw4_pos = (PORTBbits.RB5 << 1) + PORTBbits.RB4;
   1803     06F5  0140               	movlb	0	; select bank0
   1804     06F6  0E0D               	swapf	13,w	;volatile
   1805     06F7  0C89               	rrf	9,f
@@ -1859,7 +1859,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1825     0F55                     __ptext4:	
   1826 ;; *************** function _ccp1_enable *****************
   1827 ;; Defined at:
-  1828 ;;		line 352 in file "main.c"
+  1828 ;;		line 354 in file "main.c"
   1829 ;; Parameters:    Size  Location     Type
   1830 ;;		None
   1831 ;; Auto vars:     Size  Location     Type
@@ -1900,21 +1900,21 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1861                           ; Regs used in _ccp1_enable: [wreg]
   1862                           
   1863                           
-  1864                           ;main.c: 353:     CCP1IE = 0;
+  1864                           ;main.c: 355:     CCP1IE = 0;
   1865     0F55  014E               	movlb	14	; select bank14
   1866     0F56  1397               	bcf	23,7	;volatile
   1867                           
-  1868                           ;main.c: 354:     CCP1IF = 0;
+  1868                           ;main.c: 356:     CCP1IF = 0;
   1869     0F57  138D               	bcf	13,7	;volatile
   1870     0F58                     l1620:
   1871                           
-  1872                           ;main.c: 355:     CCP1CON = 0x84;
+  1872                           ;main.c: 357:     CCP1CON = 0x84;
   1873     0F58  3084               	movlw	132
   1874     0F59  0146               	movlb	6	; select bank6
   1875     0F5A  008E               	movwf	14	;volatile
   1876     0F5B                     l1622:
   1877                           
-  1878                           ;main.c: 356:     CCP1IE = 1;
+  1878                           ;main.c: 358:     CCP1IE = 1;
   1879     0F5B  014E               	movlb	14	; select bank14
   1880     0F5C  1797               	bsf	23,7	;volatile
   1881     0F5D                     l250:
@@ -1925,7 +1925,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1886     0358                     __ptext5:	
   1887 ;; *************** function _calc_map *****************
   1888 ;; Defined at:
-  1889 ;;		line 166 in file "main.c"
+  1889 ;;		line 169 in file "main.c"
   1890 ;; Parameters:    Size  Location     Type
   1891 ;;		None
   1892 ;; Auto vars:     Size  Location     Type
@@ -1980,9 +1980,9 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1936                           ; Regs used in _calc_map: [wreg-fsr1h+status,2+status,0+pclath+cstack]
   1937                           
   1938                           
-  1939                           ;main.c: 167:     uint8_t p1x, p2x, p3x, p4x;;main.c: 168:     uint16_t p1y, p2y, p3y, p
-      +                          4y;;main.c: 169:     uint8_t coeff_p1_p2, coeff_p3_p4;;main.c: 170:     uint8_t a;;main.
-      +                          c: 171:     uint24_t temp;;main.c: 172:     uint24_t temp1;;main.c: 174:     p1x = adv_s
+  1939                           ;main.c: 170:     uint8_t p1x, p2x, p3x, p4x;;main.c: 171:     uint16_t p1y, p2y, p3y, p
+      +                          4y;;main.c: 172:     uint8_t coeff_p1_p2, coeff_p3_p4;;main.c: 173:     uint8_t a;;main.
+      +                          c: 174:     uint24_t temp;;main.c: 175:     uint24_t temp1;;main.c: 177:     p1x = adv_s
       +                          tart_rpm_table[sw1_pos];
   1940     0358  0141               	movlb	1	; select bank1
   1941     0359  0853               	movf	_sw1_pos^(0+128),w
@@ -1996,7 +1996,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1949     0361  00CB               	movwf	calc_map@p1x^(0+128)
   1950     0362                     l1542:
   1951                           
-  1952                           ;main.c: 175:     p2x = adv_start_rpm_table[sw1_pos] + max_adv_grad_table[sw3_pos];
+  1952                           ;main.c: 178:     p2x = adv_start_rpm_table[sw1_pos] + max_adv_grad_table[sw3_pos];
   1953     0362  0851               	movf	_sw3_pos^(0+128),w
   1954     0363  3E10               	addlw	low (_max_adv_grad_table| (0+32768))
   1955     0364  0084               	movwf	4
@@ -2018,24 +2018,24 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1971     0374  00CC               	movwf	calc_map@p2x^(0+128)
   1972     0375                     l1544:
   1973                           
-  1974                           ;main.c: 176:     p3x = (45);
-  1975     0375  302D               	movlw	45
+  1974                           ;main.c: 179:     p3x = (55);
+  1975     0375  3037               	movlw	55
   1976     0376  00CD               	movwf	calc_map@p3x^(0+128)
   1977     0377                     l1546:
   1978                           
-  1979                           ;main.c: 177:     p4x = (85);
-  1980     0377  3055               	movlw	85
+  1979                           ;main.c: 180:     p4x = (115);
+  1980     0377  3073               	movlw	115
   1981     0378  00CE               	movwf	calc_map@p4x^(0+128)
   1982     0379                     l1548:
   1983                           
-  1984                           ;main.c: 178:     p1y = (500);
+  1984                           ;main.c: 181:     p1y = (500);
   1985     0379  30F4               	movlw	244
   1986     037A  00C3               	movwf	calc_map@p1y^(0+128)
   1987     037B  3001               	movlw	1
   1988     037C  00C4               	movwf	(calc_map@p1y^(0+128)+1)
   1989     037D                     l1550:
   1990                           
-  1991                           ;main.c: 179:     p2y = max_adv_table[sw2_pos];
+  1991                           ;main.c: 182:     p2y = max_adv_table[sw2_pos];
   1992     037D  0852               	movf	_sw2_pos^(0+128),w
   1993     037E  00AF               	movwf	??_calc_map^(0+128)
   1994     037F  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2054,14 +2054,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2007     038C  00C6               	movwf	(calc_map@p2y+1)^(0+128)
   2008     038D                     l1552:
   2009                           
-  2010                           ;main.c: 180:     p3y = p2y;
+  2010                           ;main.c: 183:     p3y = p2y;
   2011     038D  0846               	movf	(calc_map@p2y+1)^(0+128),w
   2012     038E  00C8               	movwf	(calc_map@p3y+1)^(0+128)
   2013     038F  0845               	movf	calc_map@p2y^(0+128),w
   2014     0390  00C7               	movwf	calc_map@p3y^(0+128)
   2015     0391                     l1554:
   2016                           
-  2017                           ;main.c: 181:     p4y = min_ret_table[sw4_pos];
+  2017                           ;main.c: 184:     p4y = min_ret_table[sw4_pos];
   2018     0391  0850               	movf	_sw4_pos^(0+128),w
   2019     0392  00AF               	movwf	??_calc_map^(0+128)
   2020     0393  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2080,7 +2080,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2033     03A0  00CA               	movwf	(calc_map@p4y+1)^(0+128)
   2034     03A1                     l1556:
   2035                           
-  2036                           ;main.c: 182:     coeff_p1_p2 = (uint8_t) ((p2y - p1y) / (p2x - p1x));
+  2036                           ;main.c: 185:     coeff_p1_p2 = (uint8_t) ((p2y - p1y) / (p2x - p1x));
   2037     03A1  084B               	movf	calc_map@p1x^(0+128),w
   2038     03A2  024C               	subwf	calc_map@p2x^(0+128),w
   2039     03A3  00A0               	movwf	___lwdiv@divisor^(0+128)
@@ -2099,8 +2099,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2052     03B2  00C1               	movwf	calc_map@coeff_p1_p2^(0+128)
   2053     03B3                     l1558:
   2054                           
-  2055                           ;main.c: 183:     coeff_p3_p4 = (uint8_t) ((p3y - p4y) / (p4x - p3x));
-  2056     03B3  3028               	movlw	40
+  2055                           ;main.c: 186:     coeff_p3_p4 = (uint8_t) ((p3y - p4y) / (p4x - p3x));
+  2056     03B3  303C               	movlw	60
   2057     03B4  00A0               	movwf	___lwdiv@divisor^(0+128)
   2058     03B5  3000               	movlw	0
   2059     03B6  00A1               	movwf	(___lwdiv@divisor^(0+128)+1)
@@ -2116,13 +2116,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2069     03C2  00C2               	movwf	calc_map@coeff_p3_p4^(0+128)
   2070     03C3                     l1560:
   2071                           
-  2072                           ;main.c: 186:     for (a = 15; a <= p1x; a++) {
+  2072                           ;main.c: 189:     for (a = 15; a <= p1x; a++) {
   2073     03C3  300F               	movlw	15
   2074     03C4  00CF               	movwf	calc_map@a^(0+128)
   2075     03C5  2BDD               	goto	l1566
   2076     03C6                     l1562:
   2077                           
-  2078                           ;main.c: 187:         IG_table[a] = p1y;
+  2078                           ;main.c: 190:         IG_table[a] = p1y;
   2079     03C6  084F               	movf	calc_map@a^(0+128),w
   2080     03C7  00AF               	movwf	??_calc_map^(0+128)
   2081     03C8  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2144,7 +2144,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2097     03D8  3FC1               	movwi [1]fsr1
   2098     03D9                     l1564:
   2099                           
-  2100                           ;main.c: 188:     }
+  2100                           ;main.c: 191:     }
   2101     03D9  3001               	movlw	1
   2102     03DA  00AF               	movwf	??_calc_map^(0+128)
   2103     03DB  082F               	movf	??_calc_map^(0+128),w
@@ -2160,14 +2160,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2113     03E3                     u1090:
   2114     03E3                     l1568:
   2115                           
-  2116                           ;main.c: 189:     for (a = p1x + 1; a <= p2x; a++) {
+  2116                           ;main.c: 192:     for (a = p1x + 1; a <= p2x; a++) {
   2117     03E3  084B               	movf	calc_map@p1x^(0+128),w
   2118     03E4  3E01               	addlw	1
   2119     03E5  00CF               	movwf	calc_map@a^(0+128)
   2120     03E6  2C18               	goto	l1574
   2121     03E7                     l1570:
   2122                           
-  2123                           ;main.c: 190:         IG_table[a] = coeff_p1_p2 + IG_table[a - 1];
+  2123                           ;main.c: 193:         IG_table[a] = coeff_p1_p2 + IG_table[a - 1];
   2124     03E7  084F               	movf	calc_map@a^(0+128),w
   2125     03E8  00AF               	movwf	??_calc_map^(0+128)
   2126     03E9  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2215,7 +2215,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2168     0413  3FC1               	movwi [1]fsr1
   2169     0414                     l1572:
   2170                           
-  2171                           ;main.c: 191:     }
+  2171                           ;main.c: 194:     }
   2172     0414  3001               	movlw	1
   2173     0415  00AF               	movwf	??_calc_map^(0+128)
   2174     0416  082F               	movf	??_calc_map^(0+128),w
@@ -2231,14 +2231,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2184     041E                     u1100:
   2185     041E                     l1576:
   2186                           
-  2187                           ;main.c: 192:     for (a = p2x + 1; a <= p3x; a++) {
+  2187                           ;main.c: 195:     for (a = p2x + 1; a <= p3x; a++) {
   2188     041E  084C               	movf	calc_map@p2x^(0+128),w
   2189     041F  3E01               	addlw	1
   2190     0420  00CF               	movwf	calc_map@a^(0+128)
   2191     0421  2C39               	goto	l1582
   2192     0422                     l1578:
   2193                           
-  2194                           ;main.c: 193:         IG_table[a] = p3y;
+  2194                           ;main.c: 196:         IG_table[a] = p3y;
   2195     0422  084F               	movf	calc_map@a^(0+128),w
   2196     0423  00AF               	movwf	??_calc_map^(0+128)
   2197     0424  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2260,7 +2260,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2213     0434  3FC1               	movwi [1]fsr1
   2214     0435                     l1580:
   2215                           
-  2216                           ;main.c: 194:     }
+  2216                           ;main.c: 197:     }
   2217     0435  3001               	movlw	1
   2218     0436  00AF               	movwf	??_calc_map^(0+128)
   2219     0437  082F               	movf	??_calc_map^(0+128),w
@@ -2276,14 +2276,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2229     043F                     u1110:
   2230     043F                     l1584:
   2231                           
-  2232                           ;main.c: 195:     for (a = p3x + 1; a <= p4x; a++) {
+  2232                           ;main.c: 198:     for (a = p3x + 1; a <= p4x; a++) {
   2233     043F  084D               	movf	calc_map@p3x^(0+128),w
   2234     0440  3E01               	addlw	1
   2235     0441  00CF               	movwf	calc_map@a^(0+128)
   2236     0442  2C74               	goto	l1590
   2237     0443                     l1586:
   2238                           
-  2239                           ;main.c: 196:         IG_table[a] = IG_table[a - 1] - coeff_p3_p4;
+  2239                           ;main.c: 199:         IG_table[a] = IG_table[a - 1] - coeff_p3_p4;
   2240     0443  084F               	movf	calc_map@a^(0+128),w
   2241     0444  00AF               	movwf	??_calc_map^(0+128)
   2242     0445  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2331,7 +2331,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2284     046F  3FC1               	movwi [1]fsr1
   2285     0470                     l1588:
   2286                           
-  2287                           ;main.c: 197:     }
+  2287                           ;main.c: 200:     }
   2288     0470  3001               	movlw	1
   2289     0471  00AF               	movwf	??_calc_map^(0+128)
   2290     0472  082F               	movf	??_calc_map^(0+128),w
@@ -2347,7 +2347,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2300     047A                     u1120:
   2301     047A                     l1592:
   2302                           
-  2303                           ;main.c: 198:     for (a = p4x + 1; a <= 130; a++) {
+  2303                           ;main.c: 201:     for (a = p4x + 1; a <= 130; a++) {
   2304     047A  084E               	movf	calc_map@p4x^(0+128),w
   2305     047B  3E01               	addlw	1
   2306     047C  00CF               	movwf	calc_map@a^(0+128)
@@ -2363,7 +2363,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2316     0483  2C9C               	goto	l1604
   2317     0484                     l1598:
   2318                           
-  2319                           ;main.c: 199:         IG_table[a] = p4y;
+  2319                           ;main.c: 202:         IG_table[a] = p4y;
   2320     0484  084F               	movf	calc_map@a^(0+128),w
   2321     0485  00AF               	movwf	??_calc_map^(0+128)
   2322     0486  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2385,7 +2385,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2338     0496  3FC1               	movwi [1]fsr1
   2339     0497                     l1600:
   2340                           
-  2341                           ;main.c: 200:     }
+  2341                           ;main.c: 203:     }
   2342     0497  3001               	movlw	1
   2343     0498  00AF               	movwf	??_calc_map^(0+128)
   2344     0499  082F               	movf	??_calc_map^(0+128),w
@@ -2393,12 +2393,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2346     049B  2C7D               	goto	l1594
   2347     049C                     l1604:
   2348                           
-  2349                           ;main.c: 201:     for (a = 15; a <= 130; a++) {
+  2349                           ;main.c: 204:     for (a = 15; a <= 130; a++) {
   2350     049C  300F               	movlw	15
   2351     049D  00CF               	movwf	calc_map@a^(0+128)
   2352     049E                     l1608:
   2353                           
-  2354                           ;main.c: 202:         temp1 = (((3500) - IG_table[a]) >> 1);
+  2354                           ;main.c: 205:         temp1 = (((3500) - IG_table[a]) >> 1);
   2355     049E  084F               	movf	calc_map@a^(0+128),w
   2356     049F  00AF               	movwf	??_calc_map^(0+128)
   2357     04A0  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2433,7 +2433,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2386     04BD  01C0               	clrf	(calc_map@temp1+2)^(0+128)
   2387     04BE                     l1610:
   2388                           
-  2389                           ;main.c: 203:         temp = ((deg2time_coeff[a] * temp1) >> 10);
+  2389                           ;main.c: 206:         temp = ((deg2time_coeff[a] * temp1) >> 10);
   2390     04BE  084F               	movf	calc_map@a^(0+128),w
   2391     04BF  00AF               	movwf	??_calc_map^(0+128)
   2392     04C0  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2493,7 +2493,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2446     04F8  00BD               	movwf	(calc_map@temp+2)^(0+128)
   2447     04F9                     l1612:
   2448                           
-  2449                           ;main.c: 204:         IG_table[a] = temp;
+  2449                           ;main.c: 207:         IG_table[a] = temp;
   2450     04F9  084F               	movf	calc_map@a^(0+128),w
   2451     04FA  00AF               	movwf	??_calc_map^(0+128)
   2452     04FB  01B0               	clrf	(??_calc_map^(0+128)+1)
@@ -2515,7 +2515,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2468     050B  3FC1               	movwi [1]fsr1
   2469     050C                     l1614:
   2470                           
-  2471                           ;main.c: 205:     }
+  2471                           ;main.c: 208:     }
   2472     050C  3001               	movlw	1
   2473     050D  00AF               	movwf	??_calc_map^(0+128)
   2474     050E  082F               	movf	??_calc_map^(0+128),w
@@ -2864,7 +2864,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2802     0004                     __pintentry:	
   2803 ;; *************** function _InterruptManager *****************
   2804 ;; Defined at:
-  2805 ;;		line 241 in file "main.c"
+  2805 ;;		line 243 in file "main.c"
   2806 ;; Parameters:    Size  Location     Type
   2807 ;;		None
   2808 ;; Auto vars:     Size  Location     Type
@@ -2913,7 +2913,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2846     0005  3180               	pagesel	$
   2847     0006                     i1l1732:
   2848                           
-  2849                           ;main.c: 242:     uint16_t t1_count;;main.c: 244:     if (CCP1IF) {
+  2849                           ;main.c: 244:     uint16_t t1_count;;main.c: 246:     if (CCP1IF) {
   2850     0006  014E               	movlb	14	; select bank14
   2851     0007  1F8D               	btfss	13,7	;volatile
   2852     0008  280A               	goto	u123_21
@@ -2923,7 +2923,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2856     000B                     u123_20:
   2857     000B                     i1l1734:
   2858                           
-  2859                           ;main.c: 245:         if (EG_state == EG_RUN) {
+  2859                           ;main.c: 247:         if (EG_state == EG_RUN) {
   2860     000B  0140               	movlb	0	; select bank0
   2861     000C  0350               	decf	_EG_state,w
   2862     000D  1D03               	btfss	3,2
@@ -2934,27 +2934,27 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2867     0011                     u124_20:
   2868     0011                     i1l1736:
   2869                           
-  2870                           ;main.c: 246:             TMR1ON = 0;
+  2870                           ;main.c: 248:             TMR1ON = 0;
   2871     0011  0144               	movlb	4	; select bank4
   2872     0012  100E               	bcf	14,0	;volatile
   2873     0013                     i1l1738:
   2874                           
-  2875                           ;main.c: 247:             TMR1H = 0x00;
+  2875                           ;main.c: 249:             TMR1H = 0x00;
   2876     0013  018D               	clrf	13	;volatile
   2877                           
-  2878                           ;main.c: 248:             TMR1L = 0x00;
+  2878                           ;main.c: 250:             TMR1L = 0x00;
   2879     0014  018C               	clrf	12	;volatile
   2880     0015                     i1l1740:
   2881                           
-  2882                           ;main.c: 249:             TMR1ON = 1;
+  2882                           ;main.c: 251:             TMR1ON = 1;
   2883     0015  140E               	bsf	14,0	;volatile
   2884     0016                     i1l1742:
   2885                           
-  2886                           ;main.c: 250:             ccp1_disable();
+  2886                           ;main.c: 252:             ccp1_disable();
   2887     0016  318F  2734  3180   	fcall	_ccp1_disable
   2888     0019                     i1l1744:
   2889                           
-  2890                           ;main.c: 252:             rpm = (uint8_t) (numerator_rpm / (CCPR1 >> 4));
+  2890                           ;main.c: 254:             rpm = (uint8_t) (numerator_rpm / (CCPR1 >> 4));
   2891     0019  0146               	movlb	6	; select bank6
   2892     001A  0E0C               	swapf	12,w	;volatile
   2893     001B  390F               	andlw	15
@@ -2975,7 +2975,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2908     002C  00D2               	movwf	_rpm
   2909     002D                     i1l1746:
   2910                           
-  2911                           ;main.c: 254:             if ((rpm > (15))&&(rpm <= (130))) {
+  2911                           ;main.c: 256:             if ((rpm > (15))&&(rpm <= (130))) {
   2912     002D  3010               	movlw	16
   2913     002E  0252               	subwf	_rpm,w
   2914     002F  1C03               	skipc
@@ -2995,7 +2995,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2928     0039                     u126_20:
   2929     0039                     i1l1750:
   2930                           
-  2931                           ;main.c: 255:                 ig_counter = IG_table[rpm];
+  2931                           ;main.c: 257:                 ig_counter = IG_table[rpm];
   2932     0039  0852               	movf	_rpm,w
   2933     003A  00C4               	movwf	??_InterruptManager
   2934     003B  01C5               	clrf	??_InterruptManager+1
@@ -3017,11 +3017,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2950     004B  00CD               	movwf	_ig_counter+1
   2951     004C                     i1l1752:
   2952                           
-  2953                           ;main.c: 256:                 LATC2 = (0);
+  2953                           ;main.c: 258:                 LATC2 = (0);
   2954     004C  111A               	bcf	26,2	;volatile
   2955     004D                     i1l1754:
   2956                           
-  2957                           ;main.c: 257:                 if ((ig_counter - 15) > TMR1) {
+  2957                           ;main.c: 259:                 if ((ig_counter - 15) > TMR1) {
   2958     004D  084C               	movf	_ig_counter,w
   2959     004E  3EF1               	addlw	241
   2960     004F  00C4               	movwf	??_InterruptManager
@@ -3046,7 +3046,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2979     0060                     u127_20:
   2980     0060                     i1l1756:
   2981                           
-  2982                           ;main.c: 258:                     CCPR2 = ig_counter;
+  2982                           ;main.c: 260:                     CCPR2 = ig_counter;
   2983     0060  0140               	movlb	0	; select bank0
   2984     0061  084D               	movf	_ig_counter+1,w
   2985     0062  0146               	movlb	6	; select bank6
@@ -3057,45 +3057,45 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2990     0067  0090               	movwf	16	;volatile
   2991     0068                     i1l1758:
   2992                           
-  2993                           ;main.c: 259:                     ccp2_enable();
+  2993                           ;main.c: 261:                     ccp2_enable();
   2994     0068  318F  2743  3180   	fcall	_ccp2_enable
   2995                           
-  2996                           ;main.c: 260:                 } else {
+  2996                           ;main.c: 262:                 } else {
   2997     006B  287C               	goto	i1l1772
   2998     006C                     i1l1760:
   2999                           
-  3000                           ;main.c: 261:                     ccp2_disable();
+  3000                           ;main.c: 263:                     ccp2_disable();
   3001     006C  318F  2739  3180   	fcall	i1_ccp2_disable
   3002     006F                     i1l1762:
   3003                           
-  3004                           ;main.c: 262:                     LATC1 = (1);
+  3004                           ;main.c: 264:                     LATC1 = (1);
   3005     006F  0140               	movlb	0	; select bank0
   3006     0070  149A               	bsf	26,1	;volatile
   3007     0071                     i1l1764:
   3008                           
-  3009                           ;main.c: 263:                     _delay((unsigned long)((60)*(32000000/4000000.0)));
+  3009                           ;main.c: 265:                     _delay((unsigned long)((60)*(32000000/4000000.0)));
   3010     0071  30A0               	movlw	160
   3011     0072                     u149_27:
   3012     0072  0B89               	decfsz	9,f
   3013     0073  2872               	goto	u149_27
   3014     0074                     i1l1766:
   3015                           
-  3016                           ;main.c: 264:                     LATC1 = (0);
+  3016                           ;main.c: 266:                     LATC1 = (0);
   3017     0074  0140               	movlb	0	; select bank0
   3018     0075  109A               	bcf	26,1	;volatile
   3019     0076  287C               	goto	i1l1772
   3020     0077                     i1l1768:
   3021                           
-  3022                           ;main.c: 268:                 ccp2_disable();
+  3022                           ;main.c: 270:                 ccp2_disable();
   3023     0077  318F  2739  3180   	fcall	i1_ccp2_disable
   3024     007A                     i1l1770:
   3025                           
-  3026                           ;main.c: 269:                 LATC2 = (0);
+  3026                           ;main.c: 271:                 LATC2 = (0);
   3027     007A  0140               	movlb	0	; select bank0
   3028     007B  111A               	bcf	26,2	;volatile
   3029     007C                     i1l1772:
   3030                           
-  3031                           ;main.c: 273:             if (revlimit_state == REVLIMIT_ENABLE) {
+  3031                           ;main.c: 275:             if (revlimit_state == REVLIMIT_ENABLE) {
   3032     007C  0140               	movlb	0	; select bank0
   3033     007D  084F               	movf	_revlimit_state,w
   3034     007E  1D03               	btfss	3,2
@@ -3106,8 +3106,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3039     0082                     u128_20:
   3040     0082                     i1l1774:
   3041                           
-  3042                           ;main.c: 274:                 if (rpm > (95)) {
-  3043     0082  3060               	movlw	96
+  3042                           ;main.c: 276:                 if (rpm > (126)) {
+  3043     0082  307F               	movlw	127
   3044     0083  0252               	subwf	_rpm,w
   3045     0084  1C03               	skipc
   3046     0085  2887               	goto	u129_21
@@ -3117,13 +3117,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3050     0088                     u129_20:
   3051     0088                     i1l1776:
   3052                           
-  3053                           ;main.c: 275:                     orev_counter++;
+  3053                           ;main.c: 277:                     orev_counter++;
   3054     0088  3001               	movlw	1
   3055     0089  00C4               	movwf	??_InterruptManager
   3056     008A  0844               	movf	??_InterruptManager,w
   3057     008B  07D1               	addwf	_orev_counter,f
   3058                           
-  3059                           ;main.c: 276:                     if (orev_counter == 1) ignition_disable();
+  3059                           ;main.c: 278:                     if (orev_counter == 1) ignition_disable();
   3060     008C  0351               	decf	_orev_counter,w
   3061     008D  1D03               	btfss	3,2
   3062     008E  2890               	goto	u130_21
@@ -3135,7 +3135,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3068     0091  318F  275E  3180   	fcall	_ignition_disable
   3069     0094  28AD               	goto	i1l1790
   3070     0095                     i1l1780:
-  3071     0095  3062               	movlw	98
+  3071     0095  3081               	movlw	129
   3072     0096  0252               	subwf	_rpm,w
   3073     0097  1C03               	skipc
   3074     0098  289A               	goto	u131_21
@@ -3145,13 +3145,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3078     009B                     u131_20:
   3079     009B                     i1l1782:
   3080                           
-  3081                           ;main.c: 278:                     orev_counter++;
+  3081                           ;main.c: 280:                     orev_counter++;
   3082     009B  3001               	movlw	1
   3083     009C  00C4               	movwf	??_InterruptManager
   3084     009D  0844               	movf	??_InterruptManager,w
   3085     009E  07D1               	addwf	_orev_counter,f
   3086                           
-  3087                           ;main.c: 279:                     if (orev_counter == 2) ignition_disable();
+  3087                           ;main.c: 281:                     if (orev_counter == 2) ignition_disable();
   3088     009F  3002               	movlw	2
   3089     00A0  0651               	xorwf	_orev_counter,w
   3090     00A1  1D03               	btfss	3,2
@@ -3162,7 +3162,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3095     00A5                     u132_20:
   3096     00A5  2891               	goto	i1l1778
   3097     00A6                     i1l1786:
-  3098     00A6  3064               	movlw	100
+  3098     00A6  3083               	movlw	131
   3099     00A7  0252               	subwf	_rpm,w
   3100     00A8  1C03               	skipc
   3101     00A9  28AB               	goto	u133_21
@@ -3174,7 +3174,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3107     00AD                     i1l222:
   3108     00AD                     i1l1790:
   3109                           
-  3110                           ;main.c: 284:             if (pwj_state == PWJ_ENABLE) {
+  3110                           ;main.c: 286:             if (pwj_state == PWJ_ENABLE) {
   3111     00AD  0140               	movlb	0	; select bank0
   3112     00AE  084E               	movf	_pwj_state,w
   3113     00AF  1D03               	btfss	3,2
@@ -3185,8 +3185,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3118     00B3                     u134_20:
   3119     00B3                     i1l1792:
   3120                           
-  3121                           ;main.c: 285:                 if (rpm > (85)) LATA0 = 1;
-  3122     00B3  3056               	movlw	86
+  3121                           ;main.c: 287:                 if (rpm > (112)) LATA0 = 1;
+  3122     00B3  3071               	movlw	113
   3123     00B4  0252               	subwf	_rpm,w
   3124     00B5  1C03               	skipc
   3125     00B6  28B8               	goto	u135_21
@@ -3198,7 +3198,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3131     00B9  1418               	bsf	24,0	;volatile
   3132     00BA  28D6               	goto	i1l1810
   3133     00BB                     i1l1796:
-  3134     00BB  3053               	movlw	83
+  3134     00BB  306E               	movlw	110
   3135     00BC  0252               	subwf	_rpm,w
   3136     00BD  1803               	skipnc
   3137     00BE  28C0               	goto	u136_21
@@ -3219,7 +3219,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3152     00C8                     u137_20:
   3153     00C8                     i1l1802:
   3154                           
-  3155                           ;main.c: 288:                 if (rpm > (30)) LATA0 = 1;
+  3155                           ;main.c: 290:                 if (rpm > (30)) LATA0 = 1;
   3156     00C8  301F               	movlw	31
   3157     00C9  0252               	subwf	_rpm,w
   3158     00CA  1C03               	skipc
@@ -3242,7 +3242,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3175     00D6                     i1l231:
   3176     00D6                     i1l1810:
   3177                           
-  3178                           ;main.c: 293:         if (EG_state == EG_LOW) {
+  3178                           ;main.c: 295:         if (EG_state == EG_LOW) {
   3179     00D6  0850               	movf	_EG_state,w
   3180     00D7  1D03               	btfss	3,2
   3181     00D8  28DA               	goto	u140_21
@@ -3252,28 +3252,28 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3185     00DB                     u140_20:
   3186     00DB                     i1l1812:
   3187                           
-  3188                           ;main.c: 294:             TMR1 = 0;
+  3188                           ;main.c: 296:             TMR1 = 0;
   3189     00DB  0144               	movlb	4	; select bank4
   3190     00DC  018C               	clrf	12	;volatile
   3191     00DD  018D               	clrf	13	;volatile
   3192     00DE                     i1l1814:
   3193                           
-  3194                           ;main.c: 295:             TMR1ON = 1;
+  3194                           ;main.c: 297:             TMR1ON = 1;
   3195     00DE  140E               	bsf	14,0	;volatile
   3196     00DF                     i1l1816:
   3197                           
-  3198                           ;main.c: 296:             EG_state = EG_RUN;
+  3198                           ;main.c: 298:             EG_state = EG_RUN;
   3199     00DF  0140               	movlb	0	; select bank0
   3200     00E0  01D0               	clrf	_EG_state
   3201     00E1  0AD0               	incf	_EG_state,f
   3202     00E2                     i1l1818:
   3203                           
-  3204                           ;main.c: 298:         CCP1IF = 0;
+  3204                           ;main.c: 300:         CCP1IF = 0;
   3205     00E2  014E               	movlb	14	; select bank14
   3206     00E3  138D               	bcf	13,7	;volatile
   3207     00E4                     i1l1820:
   3208                           
-  3209                           ;main.c: 301:     if (CCP2IF) {
+  3209                           ;main.c: 303:     if (CCP2IF) {
   3210     00E4  1F8E               	btfss	14,7	;volatile
   3211     00E5  28E7               	goto	u141_21
   3212     00E6  28E8               	goto	u141_20
@@ -3282,26 +3282,26 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3215     00E8                     u141_20:
   3216     00E8                     i1l1822:
   3217                           
-  3218                           ;main.c: 302:         _delay((unsigned long)((60)*(32000000/4000000.0)));
+  3218                           ;main.c: 304:         _delay((unsigned long)((60)*(32000000/4000000.0)));
   3219     00E8  30A0               	movlw	160
   3220     00E9                     u150_27:
   3221     00E9  0B89               	decfsz	9,f
   3222     00EA  28E9               	goto	u150_27
   3223     00EB                     i1l1824:
   3224                           
-  3225                           ;main.c: 303:         ccp2_disable();
+  3225                           ;main.c: 305:         ccp2_disable();
   3226     00EB  318F  2739  3180   	fcall	i1_ccp2_disable
   3227     00EE                     i1l1826:
   3228                           
-  3229                           ;main.c: 304:         LATC1 = 0;
+  3229                           ;main.c: 306:         LATC1 = 0;
   3230     00EE  0140               	movlb	0	; select bank0
   3231     00EF  109A               	bcf	26,1	;volatile
   3232                           
-  3233                           ;main.c: 305:         ccp1_enable();
+  3233                           ;main.c: 307:         ccp1_enable();
   3234     00F0  318F  274C  3180   	fcall	i1_ccp1_enable
   3235     00F3                     i1l1828:
   3236                           
-  3237                           ;main.c: 306:         if (rpm < 40) calc_map();
+  3237                           ;main.c: 308:         if (rpm < 40) calc_map();
   3238     00F3  3028               	movlw	40
   3239     00F4  0140               	movlb	0	; select bank0
   3240     00F5  0252               	subwf	_rpm,w
@@ -3315,7 +3315,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3248     00FA  3181  2190  3180   	fcall	i1_calc_map
   3249     00FD                     i1l1832:
   3250                           
-  3251                           ;main.c: 310:     if (IOCAF2) {
+  3251                           ;main.c: 312:     if (IOCAF2) {
   3252     00FD  017E               	movlb	62	; select bank62
   3253     00FE  1D3F               	btfss	63,2	;volatile
   3254     00FF  2901               	goto	u143_21
@@ -3325,7 +3325,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3258     0102                     u143_20:
   3259     0102                     i1l1834:
   3260                           
-  3261                           ;main.c: 311:         uint16_t pu1_2_period_count;;main.c: 312:         if (EG_state == 
+  3261                           ;main.c: 313:         uint16_t pu1_2_period_count;;main.c: 314:         if (EG_state == 
       +                          EG_RUN) {
   3262     0102  0140               	movlb	0	; select bank0
   3263     0103  0350               	decf	_EG_state,w
@@ -3337,7 +3337,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3269     0108                     u144_20:
   3270     0108                     i1l1836:
   3271                           
-  3272                           ;main.c: 313:             pu1_2_period_count = TMR1;
+  3272                           ;main.c: 315:             pu1_2_period_count = TMR1;
   3273     0108  0144               	movlb	4	; select bank4
   3274     0109  080D               	movf	13,w	;volatile
   3275     010A  0140               	movlb	0	; select bank0
@@ -3347,7 +3347,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3279     010E  0140               	movlb	0	; select bank0
   3280     010F  00CA               	movwf	InterruptManager@pu1_2_period_count
   3281                           
-  3282                           ;main.c: 314:             if ((rpm < 25)&&((t1_count - pu1_2_period_count)<(pu1_2_period
+  3282                           ;main.c: 316:             if ((rpm < 25)&&((t1_count - pu1_2_period_count)<(pu1_2_period
       +                          _count << 2))) {
   3283     0110  3019               	movlw	25
   3284     0111  0252               	subwf	_rpm,w
@@ -3387,15 +3387,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3318     012E                     u146_20:
   3319     012E                     i1l1840:
   3320                           
-  3321                           ;main.c: 315:                 LATC2 = (1);
+  3321                           ;main.c: 317:                 LATC2 = (1);
   3322     012E  151A               	bsf	26,2	;volatile
   3323     012F                     i1l1842:
   3324                           
-  3325                           ;main.c: 317:             ccp1_enable();
+  3325                           ;main.c: 319:             ccp1_enable();
   3326     012F  318F  274C  3180   	fcall	i1_ccp1_enable
   3327     0132                     i1l1844:
   3328                           
-  3329                           ;main.c: 318:             if (rpm < 40) calc_map();
+  3329                           ;main.c: 320:             if (rpm < 40) calc_map();
   3330     0132  3028               	movlw	40
   3331     0133  0140               	movlb	0	; select bank0
   3332     0134  0252               	subwf	_rpm,w
@@ -3409,12 +3409,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3340     0139  3181  2190  3180   	fcall	i1_calc_map
   3341     013C                     i1l1848:
   3342                           
-  3343                           ;main.c: 320:         IOCAF2 = 0;
+  3343                           ;main.c: 322:         IOCAF2 = 0;
   3344     013C  017E               	movlb	62	; select bank62
   3345     013D  113F               	bcf	63,2	;volatile
   3346     013E                     i1l1850:
   3347                           
-  3348                           ;main.c: 323:     if (TMR1IF) {
+  3348                           ;main.c: 325:     if (TMR1IF) {
   3349     013E  014E               	movlb	14	; select bank14
   3350     013F  1E8D               	btfss	13,5	;volatile
   3351     0140  2942               	goto	u148_21
@@ -3424,48 +3424,48 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3355     0143                     u148_20:
   3356     0143                     i1l1852:
   3357                           
-  3358                           ;main.c: 324:         EG_state = EG_LOW;
+  3358                           ;main.c: 326:         EG_state = EG_LOW;
   3359     0143  0140               	movlb	0	; select bank0
   3360     0144  01D0               	clrf	_EG_state
   3361     0145                     i1l1854:
   3362                           
-  3363                           ;main.c: 325:         TMR1ON = 0;
+  3363                           ;main.c: 327:         TMR1ON = 0;
   3364     0145  0144               	movlb	4	; select bank4
   3365     0146  100E               	bcf	14,0	;volatile
   3366                           
-  3367                           ;main.c: 326:         TMR1 = 0;
+  3367                           ;main.c: 328:         TMR1 = 0;
   3368     0147  018C               	clrf	12	;volatile
   3369     0148  018D               	clrf	13	;volatile
   3370                           
-  3371                           ;main.c: 327:         CCPR1 = 0;
+  3371                           ;main.c: 329:         CCPR1 = 0;
   3372     0149  0146               	movlb	6	; select bank6
   3373     014A  018C               	clrf	12	;volatile
   3374     014B  018D               	clrf	13	;volatile
   3375                           
-  3376                           ;main.c: 328:         CCPR2 = 0;
+  3376                           ;main.c: 330:         CCPR2 = 0;
   3377     014C  0190               	clrf	16	;volatile
   3378     014D  0191               	clrf	17	;volatile
   3379     014E                     i1l1856:
   3380                           
-  3381                           ;main.c: 329:         TMR1IF = 0;
+  3381                           ;main.c: 331:         TMR1IF = 0;
   3382     014E  014E               	movlb	14	; select bank14
   3383     014F  128D               	bcf	13,5	;volatile
   3384     0150                     i1l1858:
   3385                           
-  3386                           ;main.c: 330:         LATA0 = 0;
+  3386                           ;main.c: 332:         LATA0 = 0;
   3387     0150  0140               	movlb	0	; select bank0
   3388     0151  1018               	bcf	24,0	;volatile
   3389     0152                     i1l1860:
   3390                           
-  3391                           ;main.c: 331:         ccp2_disable();
+  3391                           ;main.c: 333:         ccp2_disable();
   3392     0152  318F  2739  3180   	fcall	i1_ccp2_disable
   3393     0155                     i1l1862:
   3394                           
-  3395                           ;main.c: 332:         LATC1 = 0;
+  3395                           ;main.c: 334:         LATC1 = 0;
   3396     0155  0140               	movlb	0	; select bank0
   3397     0156  109A               	bcf	26,1	;volatile
   3398     0157                     i1l243:	
-  3399                           ;main.c: 333:     }
+  3399                           ;main.c: 335:     }
   3400                           
   3401     0157  0064               	clrwdt	;# 
   3402     0158                     i1l244:
@@ -3477,7 +3477,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3408     0190                     __ptext10:	
   3409 ;; *************** function i1_calc_map *****************
   3410 ;; Defined at:
-  3411 ;;		line 166 in file "main.c"
+  3411 ;;		line 169 in file "main.c"
   3412 ;; Parameters:    Size  Location     Type
   3413 ;;		None
   3414 ;; Auto vars:     Size  Location     Type
@@ -3532,9 +3532,9 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3458                           ; Regs used in i1_calc_map: [wreg-fsr1h+status,2+status,0+pclath+cstack]
   3459                           
   3460                           
-  3461                           ;main.c: 167:     uint8_t p1x, p2x, p3x, p4x;;main.c: 168:     uint16_t p1y, p2y, p3y, p
-      +                          4y;;main.c: 169:     uint8_t coeff_p1_p2, coeff_p3_p4;;main.c: 170:     uint8_t a;;main.
-      +                          c: 171:     uint24_t temp;;main.c: 172:     uint24_t temp1;;main.c: 174:     p1x = adv_s
+  3461                           ;main.c: 170:     uint8_t p1x, p2x, p3x, p4x;;main.c: 171:     uint16_t p1y, p2y, p3y, p
+      +                          4y;;main.c: 172:     uint8_t coeff_p1_p2, coeff_p3_p4;;main.c: 173:     uint8_t a;;main.
+      +                          c: 174:     uint24_t temp;;main.c: 175:     uint24_t temp1;;main.c: 177:     p1x = adv_s
       +                          tart_rpm_table[sw1_pos];
   3462     0190  0141               	movlb	1	; select bank1
   3463     0191  0853               	movf	_sw1_pos^(0+128),w
@@ -3549,7 +3549,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3472     019A  00BF               	movwf	i1calc_map@p1x
   3473     019B                     i1l1644:
   3474                           
-  3475                           ;main.c: 175:     p2x = adv_start_rpm_table[sw1_pos] + max_adv_grad_table[sw3_pos];
+  3475                           ;main.c: 178:     p2x = adv_start_rpm_table[sw1_pos] + max_adv_grad_table[sw3_pos];
   3476     019B  0141               	movlb	1	; select bank1
   3477     019C  0851               	movf	_sw3_pos^(0+128),w
   3478     019D  3E10               	addlw	low (_max_adv_grad_table| (0+32768))
@@ -3575,24 +3575,24 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3498     01B1  00C0               	movwf	i1calc_map@p2x
   3499     01B2                     i1l1646:
   3500                           
-  3501                           ;main.c: 176:     p3x = (45);
-  3502     01B2  302D               	movlw	45
+  3501                           ;main.c: 179:     p3x = (55);
+  3502     01B2  3037               	movlw	55
   3503     01B3  00C1               	movwf	i1calc_map@p3x
   3504     01B4                     i1l1648:
   3505                           
-  3506                           ;main.c: 177:     p4x = (85);
-  3507     01B4  3055               	movlw	85
+  3506                           ;main.c: 180:     p4x = (115);
+  3507     01B4  3073               	movlw	115
   3508     01B5  00C2               	movwf	i1calc_map@p4x
   3509     01B6                     i1l1650:
   3510                           
-  3511                           ;main.c: 178:     p1y = (500);
+  3511                           ;main.c: 181:     p1y = (500);
   3512     01B6  30F4               	movlw	244
   3513     01B7  00B7               	movwf	i1calc_map@p1y
   3514     01B8  3001               	movlw	1
   3515     01B9  00B8               	movwf	i1calc_map@p1y+1
   3516     01BA                     i1l1652:
   3517                           
-  3518                           ;main.c: 179:     p2y = max_adv_table[sw2_pos];
+  3518                           ;main.c: 182:     p2y = max_adv_table[sw2_pos];
   3519     01BA  0141               	movlb	1	; select bank1
   3520     01BB  0852               	movf	_sw2_pos^(0+128),w
   3521     01BC  0140               	movlb	0	; select bank0
@@ -3613,14 +3613,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3536     01CB  00BA               	movwf	i1calc_map@p2y+1
   3537     01CC                     i1l1654:
   3538                           
-  3539                           ;main.c: 180:     p3y = p2y;
+  3539                           ;main.c: 183:     p3y = p2y;
   3540     01CC  083A               	movf	i1calc_map@p2y+1,w
   3541     01CD  00BC               	movwf	i1calc_map@p3y+1
   3542     01CE  0839               	movf	i1calc_map@p2y,w
   3543     01CF  00BB               	movwf	i1calc_map@p3y
   3544     01D0                     i1l1656:
   3545                           
-  3546                           ;main.c: 181:     p4y = min_ret_table[sw4_pos];
+  3546                           ;main.c: 184:     p4y = min_ret_table[sw4_pos];
   3547     01D0  0141               	movlb	1	; select bank1
   3548     01D1  0850               	movf	_sw4_pos^(0+128),w
   3549     01D2  0140               	movlb	0	; select bank0
@@ -3641,7 +3641,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3564     01E1  00BE               	movwf	i1calc_map@p4y+1
   3565     01E2                     i1l1658:
   3566                           
-  3567                           ;main.c: 182:     coeff_p1_p2 = (uint8_t) ((p2y - p1y) / (p2x - p1x));
+  3567                           ;main.c: 185:     coeff_p1_p2 = (uint8_t) ((p2y - p1y) / (p2x - p1x));
   3568     01E2  083F               	movf	i1calc_map@p1x,w
   3569     01E3  0240               	subwf	i1calc_map@p2x,w
   3570     01E4  00F0               	movwf	i1___lwdiv@divisor
@@ -3660,8 +3660,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3583     01F3  00B5               	movwf	i1calc_map@coeff_p1_p2
   3584     01F4                     i1l1660:
   3585                           
-  3586                           ;main.c: 183:     coeff_p3_p4 = (uint8_t) ((p3y - p4y) / (p4x - p3x));
-  3587     01F4  3028               	movlw	40
+  3586                           ;main.c: 186:     coeff_p3_p4 = (uint8_t) ((p3y - p4y) / (p4x - p3x));
+  3587     01F4  303C               	movlw	60
   3588     01F5  00F0               	movwf	i1___lwdiv@divisor
   3589     01F6  3000               	movlw	0
   3590     01F7  00F1               	movwf	i1___lwdiv@divisor+1
@@ -3677,13 +3677,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3600     0203  00B6               	movwf	i1calc_map@coeff_p3_p4
   3601     0204                     i1l1662:
   3602                           
-  3603                           ;main.c: 186:     for (a = 15; a <= p1x; a++) {
+  3603                           ;main.c: 189:     for (a = 15; a <= p1x; a++) {
   3604     0204  300F               	movlw	15
   3605     0205  00C3               	movwf	i1calc_map@a
   3606     0206  2A1E               	goto	i1l1668
   3607     0207                     i1l1664:
   3608                           
-  3609                           ;main.c: 187:         IG_table[a] = p1y;
+  3609                           ;main.c: 190:         IG_table[a] = p1y;
   3610     0207  0843               	movf	i1calc_map@a,w
   3611     0208  00A3               	movwf	??i1_calc_map
   3612     0209  01A4               	clrf	??i1_calc_map+1
@@ -3705,7 +3705,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3628     0219  3FC1               	movwi [1]fsr1
   3629     021A                     i1l1666:
   3630                           
-  3631                           ;main.c: 188:     }
+  3631                           ;main.c: 191:     }
   3632     021A  3001               	movlw	1
   3633     021B  00A3               	movwf	??i1_calc_map
   3634     021C  0823               	movf	??i1_calc_map,w
@@ -3721,14 +3721,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3644     0224                     u116_20:
   3645     0224                     i1l1670:
   3646                           
-  3647                           ;main.c: 189:     for (a = p1x + 1; a <= p2x; a++) {
+  3647                           ;main.c: 192:     for (a = p1x + 1; a <= p2x; a++) {
   3648     0224  083F               	movf	i1calc_map@p1x,w
   3649     0225  3E01               	addlw	1
   3650     0226  00C3               	movwf	i1calc_map@a
   3651     0227  2A59               	goto	i1l1676
   3652     0228                     i1l1672:
   3653                           
-  3654                           ;main.c: 190:         IG_table[a] = coeff_p1_p2 + IG_table[a - 1];
+  3654                           ;main.c: 193:         IG_table[a] = coeff_p1_p2 + IG_table[a - 1];
   3655     0228  0843               	movf	i1calc_map@a,w
   3656     0229  00A3               	movwf	??i1_calc_map
   3657     022A  01A4               	clrf	??i1_calc_map+1
@@ -3776,7 +3776,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3699     0254  3FC1               	movwi [1]fsr1
   3700     0255                     i1l1674:
   3701                           
-  3702                           ;main.c: 191:     }
+  3702                           ;main.c: 194:     }
   3703     0255  3001               	movlw	1
   3704     0256  00A3               	movwf	??i1_calc_map
   3705     0257  0823               	movf	??i1_calc_map,w
@@ -3792,14 +3792,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3715     025F                     u117_20:
   3716     025F                     i1l1678:
   3717                           
-  3718                           ;main.c: 192:     for (a = p2x + 1; a <= p3x; a++) {
+  3718                           ;main.c: 195:     for (a = p2x + 1; a <= p3x; a++) {
   3719     025F  0840               	movf	i1calc_map@p2x,w
   3720     0260  3E01               	addlw	1
   3721     0261  00C3               	movwf	i1calc_map@a
   3722     0262  2A7A               	goto	i1l1684
   3723     0263                     i1l1680:
   3724                           
-  3725                           ;main.c: 193:         IG_table[a] = p3y;
+  3725                           ;main.c: 196:         IG_table[a] = p3y;
   3726     0263  0843               	movf	i1calc_map@a,w
   3727     0264  00A3               	movwf	??i1_calc_map
   3728     0265  01A4               	clrf	??i1_calc_map+1
@@ -3821,7 +3821,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3744     0275  3FC1               	movwi [1]fsr1
   3745     0276                     i1l1682:
   3746                           
-  3747                           ;main.c: 194:     }
+  3747                           ;main.c: 197:     }
   3748     0276  3001               	movlw	1
   3749     0277  00A3               	movwf	??i1_calc_map
   3750     0278  0823               	movf	??i1_calc_map,w
@@ -3837,14 +3837,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3760     0280                     u118_20:
   3761     0280                     i1l1686:
   3762                           
-  3763                           ;main.c: 195:     for (a = p3x + 1; a <= p4x; a++) {
+  3763                           ;main.c: 198:     for (a = p3x + 1; a <= p4x; a++) {
   3764     0280  0841               	movf	i1calc_map@p3x,w
   3765     0281  3E01               	addlw	1
   3766     0282  00C3               	movwf	i1calc_map@a
   3767     0283  2AB5               	goto	i1l1692
   3768     0284                     i1l1688:
   3769                           
-  3770                           ;main.c: 196:         IG_table[a] = IG_table[a - 1] - coeff_p3_p4;
+  3770                           ;main.c: 199:         IG_table[a] = IG_table[a - 1] - coeff_p3_p4;
   3771     0284  0843               	movf	i1calc_map@a,w
   3772     0285  00A3               	movwf	??i1_calc_map
   3773     0286  01A4               	clrf	??i1_calc_map+1
@@ -3892,7 +3892,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3815     02B0  3FC1               	movwi [1]fsr1
   3816     02B1                     i1l1690:
   3817                           
-  3818                           ;main.c: 197:     }
+  3818                           ;main.c: 200:     }
   3819     02B1  3001               	movlw	1
   3820     02B2  00A3               	movwf	??i1_calc_map
   3821     02B3  0823               	movf	??i1_calc_map,w
@@ -3908,7 +3908,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3831     02BB                     u119_20:
   3832     02BB                     i1l1694:
   3833                           
-  3834                           ;main.c: 198:     for (a = p4x + 1; a <= 130; a++) {
+  3834                           ;main.c: 201:     for (a = p4x + 1; a <= 130; a++) {
   3835     02BB  0842               	movf	i1calc_map@p4x,w
   3836     02BC  3E01               	addlw	1
   3837     02BD  00C3               	movwf	i1calc_map@a
@@ -3924,7 +3924,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3847     02C4  2ADD               	goto	i1l1706
   3848     02C5                     i1l1700:
   3849                           
-  3850                           ;main.c: 199:         IG_table[a] = p4y;
+  3850                           ;main.c: 202:         IG_table[a] = p4y;
   3851     02C5  0843               	movf	i1calc_map@a,w
   3852     02C6  00A3               	movwf	??i1_calc_map
   3853     02C7  01A4               	clrf	??i1_calc_map+1
@@ -3946,7 +3946,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3869     02D7  3FC1               	movwi [1]fsr1
   3870     02D8                     i1l1702:
   3871                           
-  3872                           ;main.c: 200:     }
+  3872                           ;main.c: 203:     }
   3873     02D8  3001               	movlw	1
   3874     02D9  00A3               	movwf	??i1_calc_map
   3875     02DA  0823               	movf	??i1_calc_map,w
@@ -3954,12 +3954,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3877     02DC  2ABE               	goto	i1l1696
   3878     02DD                     i1l1706:
   3879                           
-  3880                           ;main.c: 201:     for (a = 15; a <= 130; a++) {
+  3880                           ;main.c: 204:     for (a = 15; a <= 130; a++) {
   3881     02DD  300F               	movlw	15
   3882     02DE  00C3               	movwf	i1calc_map@a
   3883     02DF                     i1l1710:
   3884                           
-  3885                           ;main.c: 202:         temp1 = (((3500) - IG_table[a]) >> 1);
+  3885                           ;main.c: 205:         temp1 = (((3500) - IG_table[a]) >> 1);
   3886     02DF  0843               	movf	i1calc_map@a,w
   3887     02E0  00A3               	movwf	??i1_calc_map
   3888     02E1  01A4               	clrf	??i1_calc_map+1
@@ -3994,7 +3994,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3917     02FE  01B4               	clrf	i1calc_map@temp1+2
   3918     02FF                     i1l1712:
   3919                           
-  3920                           ;main.c: 203:         temp = ((deg2time_coeff[a] * temp1) >> 10);
+  3920                           ;main.c: 206:         temp = ((deg2time_coeff[a] * temp1) >> 10);
   3921     02FF  0843               	movf	i1calc_map@a,w
   3922     0300  00A3               	movwf	??i1_calc_map
   3923     0301  01A4               	clrf	??i1_calc_map+1
@@ -4054,7 +4054,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3977     0339  00B1               	movwf	i1calc_map@temp+2
   3978     033A                     i1l1714:
   3979                           
-  3980                           ;main.c: 204:         IG_table[a] = temp;
+  3980                           ;main.c: 207:         IG_table[a] = temp;
   3981     033A  0843               	movf	i1calc_map@a,w
   3982     033B  00A3               	movwf	??i1_calc_map
   3983     033C  01A4               	clrf	??i1_calc_map+1
@@ -4076,7 +4076,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3999     034C  3FC1               	movwi [1]fsr1
   4000     034D                     i1l1716:
   4001                           
-  4002                           ;main.c: 205:     }
+  4002                           ;main.c: 208:     }
   4003     034D  3001               	movlw	1
   4004     034E  00A3               	movwf	??i1_calc_map
   4005     034F  0823               	movf	??i1_calc_map,w
@@ -4423,7 +4423,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4331     0F5E                     __ptext14:	
   4332 ;; *************** function _ignition_disable *****************
   4333 ;; Defined at:
-  4334 ;;		line 341 in file "main.c"
+  4334 ;;		line 343 in file "main.c"
   4335 ;; Parameters:    Size  Location     Type
   4336 ;;		None
   4337 ;; Auto vars:     Size  Location     Type
@@ -4465,20 +4465,20 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4368                           ; Regs used in _ignition_disable: [wreg+status,2+status,0+pclath+cstack]
   4369                           
   4370                           
-  4371                           ;main.c: 342:     ccp2_disable();
+  4371                           ;main.c: 344:     ccp2_disable();
   4372     0F5E  318F  2739  318F   	fcall	i1_ccp2_disable
   4373     0F61                     i1l1636:
   4374                           
-  4375                           ;main.c: 343:     LATC2 = (1);
+  4375                           ;main.c: 345:     LATC2 = (1);
   4376     0F61  0140               	movlb	0	; select bank0
   4377     0F62  151A               	bsf	26,2	;volatile
   4378     0F63                     i1l1638:
   4379                           
-  4380                           ;main.c: 344:     orev_counter = 0;
+  4380                           ;main.c: 346:     orev_counter = 0;
   4381     0F63  01D1               	clrf	_orev_counter
   4382     0F64                     i1l1640:
   4383                           
-  4384                           ;main.c: 345:     ccp1_enable();
+  4384                           ;main.c: 347:     ccp1_enable();
   4385     0F64  318F  274C  318F   	fcall	i1_ccp1_enable
   4386     0F67                     i1l247:
   4387     0F67  0008               	return
@@ -4488,7 +4488,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4391     0F39                     __ptext15:	
   4392 ;; *************** function i1_ccp2_disable *****************
   4393 ;; Defined at:
-  4394 ;;		line 383 in file "main.c"
+  4394 ;;		line 385 in file "main.c"
   4395 ;; Parameters:    Size  Location     Type
   4396 ;;		None
   4397 ;; Auto vars:     Size  Location     Type
@@ -4529,12 +4529,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4427                           ; Regs used in i1_ccp2_disable: [status,2]
   4428                           
   4429                           
-  4430                           ;main.c: 384:     CCP2IE = 0;
+  4430                           ;main.c: 386:     CCP2IE = 0;
   4431     0F39  014E               	movlb	14	; select bank14
   4432     0F3A  1398               	bcf	24,7	;volatile
   4433     0F3B                     i1l1392:
   4434                           
-  4435                           ;main.c: 385:     CCP2CON = 0;
+  4435                           ;main.c: 387:     CCP2CON = 0;
   4436     0F3B  0146               	movlb	6	; select bank6
   4437     0F3C  0192               	clrf	18	;volatile
   4438     0F3D                     i1l259:
@@ -4545,7 +4545,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4443     0F4C                     __ptext16:	
   4444 ;; *************** function i1_ccp1_enable *****************
   4445 ;; Defined at:
-  4446 ;;		line 352 in file "main.c"
+  4446 ;;		line 354 in file "main.c"
   4447 ;; Parameters:    Size  Location     Type
   4448 ;;		None
   4449 ;; Auto vars:     Size  Location     Type
@@ -4586,21 +4586,21 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4479                           ; Regs used in i1_ccp1_enable: [wreg]
   4480                           
   4481                           
-  4482                           ;main.c: 353:     CCP1IE = 0;
+  4482                           ;main.c: 355:     CCP1IE = 0;
   4483     0F4C  014E               	movlb	14	; select bank14
   4484     0F4D  1397               	bcf	23,7	;volatile
   4485                           
-  4486                           ;main.c: 354:     CCP1IF = 0;
+  4486                           ;main.c: 356:     CCP1IF = 0;
   4487     0F4E  138D               	bcf	13,7	;volatile
   4488     0F4F                     i1l1386:
   4489                           
-  4490                           ;main.c: 355:     CCP1CON = 0x84;
+  4490                           ;main.c: 357:     CCP1CON = 0x84;
   4491     0F4F  3084               	movlw	132
   4492     0F50  0146               	movlb	6	; select bank6
   4493     0F51  008E               	movwf	14	;volatile
   4494     0F52                     i1l1388:
   4495                           
-  4496                           ;main.c: 356:     CCP1IE = 1;
+  4496                           ;main.c: 358:     CCP1IE = 1;
   4497     0F52  014E               	movlb	14	; select bank14
   4498     0F53  1797               	bsf	23,7	;volatile
   4499     0F54                     i1l250:
@@ -4611,7 +4611,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4504     0F43                     __ptext17:	
   4505 ;; *************** function _ccp2_enable *****************
   4506 ;; Defined at:
-  4507 ;;		line 372 in file "main.c"
+  4507 ;;		line 374 in file "main.c"
   4508 ;; Parameters:    Size  Location     Type
   4509 ;;		None
   4510 ;; Auto vars:     Size  Location     Type
@@ -4651,21 +4651,21 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4539                           ; Regs used in _ccp2_enable: [wreg]
   4540                           
   4541                           
-  4542                           ;main.c: 373:     CCP2IE = 0;
+  4542                           ;main.c: 375:     CCP2IE = 0;
   4543     0F43  014E               	movlb	14	; select bank14
   4544     0F44  1398               	bcf	24,7	;volatile
   4545                           
-  4546                           ;main.c: 374:     CCP2IF = 0;
+  4546                           ;main.c: 376:     CCP2IF = 0;
   4547     0F45  138E               	bcf	14,7	;volatile
   4548     0F46                     i1l1630:
   4549                           
-  4550                           ;main.c: 375:     CCP2CON = 0x88;
+  4550                           ;main.c: 377:     CCP2CON = 0x88;
   4551     0F46  3088               	movlw	136
   4552     0F47  0146               	movlb	6	; select bank6
   4553     0F48  0092               	movwf	18	;volatile
   4554     0F49                     i1l1632:
   4555                           
-  4556                           ;main.c: 376:     CCP2IE = 1;
+  4556                           ;main.c: 378:     CCP2IE = 1;
   4557     0F49  014E               	movlb	14	; select bank14
   4558     0F4A  1798               	bsf	24,7	;volatile
   4559     0F4B                     i1l256:
@@ -4676,7 +4676,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4564     0F34                     __ptext18:	
   4565 ;; *************** function _ccp1_disable *****************
   4566 ;; Defined at:
-  4567 ;;		line 363 in file "main.c"
+  4567 ;;		line 365 in file "main.c"
   4568 ;; Parameters:    Size  Location     Type
   4569 ;;		None
   4570 ;; Auto vars:     Size  Location     Type
@@ -4716,12 +4716,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4599                           ; Regs used in _ccp1_disable: [status,2]
   4600                           
   4601                           
-  4602                           ;main.c: 364:     CCP1IE = 0;
+  4602                           ;main.c: 366:     CCP1IE = 0;
   4603     0F34  014E               	movlb	14	; select bank14
   4604     0F35  1397               	bcf	23,7	;volatile
   4605     0F36                     i1l1626:
   4606                           
-  4607                           ;main.c: 365:     CCP1CON = 0;
+  4607                           ;main.c: 367:     CCP1CON = 0;
   4608     0F36  0146               	movlb	6	; select bank6
   4609     0F37  018E               	clrf	14	;volatile
   4610     0F38                     i1l253:
@@ -5215,7 +5215,7 @@ SFR63                0      0       0      64        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Sun Dec 29 10:41:03 2024
+Symbol Table                                                                                   Sat Feb 08 11:42:21 2025
 
                 ??_InterruptManager 0044                 ___wmul@multiplicand 00A2  
                   i1___wmul@product 0074                          i1_calc_map 0190  

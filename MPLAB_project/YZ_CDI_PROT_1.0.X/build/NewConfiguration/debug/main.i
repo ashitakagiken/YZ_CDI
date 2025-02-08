@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 16 "main.c"
+# 18 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6198,11 +6198,11 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 16 "main.c" 2
+# 18 "main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdbool.h" 1 3
-# 18 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./yz_cdi.h" 1
 # 14 "./yz_cdi.h"
@@ -6232,11 +6232,11 @@ extern __bank0 __bit __timeout;
 
 
 #pragma config CP = OFF
-# 19 "main.c" 2
+# 21 "main.c" 2
 
 # 1 "./constant.h" 1
-# 20 "main.c" 2
-# 48 "main.c"
+# 22 "main.c" 2
+# 50 "main.c"
 void main(void);
 void initialize_system(void);
 void __attribute__((picinterrupt(("")))) InterruptManager(void);
@@ -6267,12 +6267,12 @@ typedef enum {
     REVLIMIT_ENABLE,
     REVLIMIT_DISABLE,
 } REVLIMIT_STATE;
-# 106 "main.c"
+# 109 "main.c"
 const uint8_t adv_start_rpm_table[4] = {45, 35, 25, 15};
-const uint16_t max_adv_table[4] = {(500) + 1600, (500) + 1300, (500) + 1000, (500) + 700};
+const uint16_t max_adv_table[4] = {(500) + 2200, (500) + 1800, (500) + 1400, (500) + 1000};
 const uint8_t max_adv_grad_table[4] = {40, 30, 20, 10};
-const uint16_t min_ret_table[4] = {(500) + 800, (500) + 600, (500) + 400, (500) + 200};
-# 119 "main.c"
+const uint16_t min_ret_table[4] = {(500) + 1000, (500) + 800, (500) + 600, (500) + 400};
+# 122 "main.c"
 uint16_t IG_table[131] = {0x0000};
 uint24_t deg2time_coeff[131] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2276, 2133, 2008, 1896, 1796,
@@ -6330,8 +6330,8 @@ void calc_map() {
 
     p1x = adv_start_rpm_table[sw1_pos];
     p2x = adv_start_rpm_table[sw1_pos] + max_adv_grad_table[sw3_pos];
-    p3x = (45);
-    p4x = (85);
+    p3x = (55);
+    p4x = (115);
     p1y = (500);
     p2y = max_adv_table[sw2_pos];
     p3y = p2y;
@@ -6381,7 +6381,6 @@ void check_sw_state() {
         break;
     case 1:
         revlimit_state = REVLIMIT_ENABLE;
-
         break;
     }
 
@@ -6428,19 +6427,19 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
 
 
             if (revlimit_state == REVLIMIT_ENABLE) {
-                if (rpm > (95)) {
+                if (rpm > (126)) {
                     orev_counter++;
                     if (orev_counter == 1) ignition_disable();
-                } else if (rpm > (97)) {
+                } else if (rpm > (128)) {
                     orev_counter++;
                     if (orev_counter == 2) ignition_disable();
-                } else if (rpm > (99)) ignition_disable();
+                } else if (rpm > (130)) ignition_disable();
             }
 
 
             if (pwj_state == PWJ_ENABLE) {
-                if (rpm > (85)) LATA0 = 1;
-                else if (rpm < (83)) LATA0 = 0;
+                if (rpm > (112)) LATA0 = 1;
+                else if (rpm < (110)) LATA0 = 0;
             } else if (pwj_state == PWJ_DISABLE) {
                 if (rpm > (30)) LATA0 = 1;
                 else if (rpm < (28)) LATA0 = 0;

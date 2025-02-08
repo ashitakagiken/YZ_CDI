@@ -3,17 +3,17 @@
 [d edition pro ]
 [d chip 16F15245 ]
 [d frameptr 6 ]
-"215 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"218 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [e E3657 . `uc
 PWJ_ENABLE 0
 PWJ_DISABLE 1
 ]
-"223
+"226
 [e E3661 . `uc
 REVLIMIT_ENABLE 0
 REVLIMIT_DISABLE 1
 ]
-"245
+"247
 [e E3653 . `uc
 EG_LOW 0
 EG_RUN 1
@@ -31,28 +31,28 @@ EG_RUN 1
 [v i1___tmul __tmul `(um  1 e 3 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"151 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"154 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"166
+"169
 [v _calc_map calc_map `(v  1 e 1 0 ]
 [v i1_calc_map calc_map `(v  1 e 1 0 ]
-"212
+"215
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
-"241
+"243
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
-"341
+"343
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
-"352
+"354
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
-"363
+"365
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
-"372
+"374
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-"383
+"385
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 [v i1_ccp2_disable ccp2_disable `(v  1 e 1 0 ]
-"392
+"394
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 "446 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f15245.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -188,86 +188,86 @@ EG_RUN 1
 [v _TMR1IF TMR1IF `VEb  1 e 0 @14445 ]
 "11965
 [v _TMR1ON TMR1ON `VEb  1 e 0 @4208 ]
-"106 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"109 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _adv_start_rpm_table adv_start_rpm_table `DC[4]uc  1 e 4 0 ]
-"107
+"110
 [v _max_adv_table max_adv_table `DC[4]us  1 e 8 0 ]
-"108
+"111
 [v _max_adv_grad_table max_adv_grad_table `DC[4]uc  1 e 4 0 ]
-"109
+"112
 [v _min_ret_table min_ret_table `DC[4]us  1 e 8 0 ]
-"119
+"122
 [v _IG_table IG_table `[131]us  1 e 262 @8938 ]
-"120
+"123
 [v _deg2time_coeff deg2time_coeff `[131]um  1 e 393 @8545 ]
-"133
+"136
 [v _rpm rpm `uc  1 e 1 0 ]
-"134
-[v _orev_counter orev_counter `uc  1 e 1 0 ]
-"135
-[v _ig_counter ig_counter `us  1 e 2 0 ]
 "137
-[v _EG_state EG_state `uc  1 e 1 0 ]
+[v _orev_counter orev_counter `uc  1 e 1 0 ]
 "138
+[v _ig_counter ig_counter `us  1 e 2 0 ]
+"140
+[v _EG_state EG_state `uc  1 e 1 0 ]
+"141
 [v _revlimit_state revlimit_state `uc  1 e 1 0 ]
-"139
-[v _pwj_state pwj_state `uc  1 e 1 0 ]
 "142
-[v _sw1_pos sw1_pos `uc  1 e 1 0 ]
-"143
-[v _sw2_pos sw2_pos `uc  1 e 1 0 ]
-"144
-[v _sw3_pos sw3_pos `uc  1 e 1 0 ]
+[v _pwj_state pwj_state `uc  1 e 1 0 ]
 "145
+[v _sw1_pos sw1_pos `uc  1 e 1 0 ]
+"146
+[v _sw2_pos sw2_pos `uc  1 e 1 0 ]
+"147
+[v _sw3_pos sw3_pos `uc  1 e 1 0 ]
+"148
 [v _sw4_pos sw4_pos `uc  1 e 1 0 ]
-"151
+"154
 [v _main main `(v  1 e 1 0 ]
 {
-"160
+"163
 } 0
-"392
+"394
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 {
-"462
+"464
 } 0
-"383
+"385
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 {
-"386
+"388
 } 0
-"212
+"215
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
 {
-"235
+"237
 } 0
-"352
+"354
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"357
+"359
 } 0
-"166
+"169
 [v _calc_map calc_map `(v  1 e 1 0 ]
 {
-"172
+"175
 [v calc_map@temp1 temp1 `um  1 a 3 30 ]
-"171
+"174
 [v calc_map@temp temp `um  1 a 3 27 ]
-"168
+"171
 [v calc_map@p4y p4y `us  1 a 2 41 ]
 [v calc_map@p3y p3y `us  1 a 2 39 ]
 [v calc_map@p2y p2y `us  1 a 2 37 ]
 [v calc_map@p1y p1y `us  1 a 2 35 ]
-"170
+"173
 [v calc_map@a a `uc  1 a 1 47 ]
-"167
+"170
 [v calc_map@p4x p4x `uc  1 a 1 46 ]
 [v calc_map@p3x p3x `uc  1 a 1 45 ]
 [v calc_map@p2x p2x `uc  1 a 1 44 ]
 [v calc_map@p1x p1x `uc  1 a 1 43 ]
-"169
+"172
 [v calc_map@coeff_p3_p4 coeff_p3_p4 `uc  1 a 1 34 ]
 [v calc_map@coeff_p1_p2 coeff_p1_p2 `uc  1 a 1 33 ]
-"206
+"209
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -301,38 +301,38 @@ EG_RUN 1
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"241 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"243 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 {
-"311
+"313
 [v InterruptManager@pu1_2_period_count pu1_2_period_count `us  1 a 2 42 ]
-"242
+"244
 [v InterruptManager@t1_count t1_count `us  1 a 2 40 ]
-"335
+"337
 } 0
-"166
+"169
 [v i1_calc_map calc_map `(v  1 e 1 0 ]
 {
-"172
+"175
 [v i1calc_map@temp1 temp1 `um  1 a 3 18 ]
-"171
+"174
 [v i1calc_map@temp temp `um  1 a 3 15 ]
-"168
+"171
 [v i1calc_map@p4y p4y `us  1 a 2 29 ]
 [v i1calc_map@p3y p3y `us  1 a 2 27 ]
 [v i1calc_map@p2y p2y `us  1 a 2 25 ]
 [v i1calc_map@p1y p1y `us  1 a 2 23 ]
-"170
+"173
 [v i1calc_map@a a `uc  1 a 1 35 ]
-"167
+"170
 [v i1calc_map@p4x p4x `uc  1 a 1 34 ]
 [v i1calc_map@p3x p3x `uc  1 a 1 33 ]
 [v i1calc_map@p2x p2x `uc  1 a 1 32 ]
 [v i1calc_map@p1x p1x `uc  1 a 1 31 ]
-"169
+"172
 [v i1calc_map@coeff_p3_p4 coeff_p3_p4 `uc  1 a 1 22 ]
 [v i1calc_map@coeff_p1_p2 coeff_p1_p2 `uc  1 a 1 21 ]
-"206
+"209
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v i1___wmul __wmul `(ui  1 e 2 0 ]
@@ -366,28 +366,28 @@ EG_RUN 1
 [v i1___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"341 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"343 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
 {
-"346
+"348
 } 0
-"383
+"385
 [v i1_ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 {
-"386
+"388
 } 0
-"352
+"354
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"357
+"359
 } 0
-"372
+"374
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
 {
-"377
+"379
 } 0
-"363
+"365
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
 {
-"366
+"368
 } 0
