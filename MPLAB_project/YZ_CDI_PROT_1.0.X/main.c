@@ -6,6 +6,7 @@
  Updates
  DATE           VERSION  UPDATE
  09/DEC/2024    1.00     DEVEROPMENT START
+ 08/FEB/2025    1.01     FIRST TEST FOR MASATERU YZ125
  
  Version    a.b.c
             | | + Minor version up with only software change
@@ -13,7 +14,6 @@
             + - - Major version up 
  */
 
-//git test3
 
 #include<xc.h>
 #include<stdint.h>
