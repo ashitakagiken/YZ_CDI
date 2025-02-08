@@ -6,14 +6,13 @@
  Updates
  DATE           VERSION  UPDATE
  09/DEC/2024    1.00     DEVEROPMENT START
+ 08/FEB/2025    1.02     FIRST TEST FOR YZ250
  
  Version    a.b.c
             | | + Minor version up with only software change
             | + - Minor version up with hardware change
             + - - Major version up 
  */
-
-//git test3
 
 #include<xc.h>
 #include<stdint.h>

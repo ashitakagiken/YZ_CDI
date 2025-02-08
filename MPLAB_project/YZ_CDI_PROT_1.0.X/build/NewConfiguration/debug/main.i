@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 18 "main.c"
+# 17 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6198,11 +6198,11 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 18 "main.c" 2
+# 17 "main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdbool.h" 1 3
-# 20 "main.c" 2
+# 19 "main.c" 2
 
 # 1 "./yz_cdi.h" 1
 # 14 "./yz_cdi.h"
@@ -6232,11 +6232,11 @@ extern __bank0 __bit __timeout;
 
 
 #pragma config CP = OFF
-# 21 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./constant.h" 1
-# 22 "main.c" 2
-# 50 "main.c"
+# 21 "main.c" 2
+# 49 "main.c"
 void main(void);
 void initialize_system(void);
 void __attribute__((picinterrupt(("")))) InterruptManager(void);
@@ -6267,12 +6267,12 @@ typedef enum {
     REVLIMIT_ENABLE,
     REVLIMIT_DISABLE,
 } REVLIMIT_STATE;
-# 109 "main.c"
+# 108 "main.c"
 const uint8_t adv_start_rpm_table[4] = {45, 35, 25, 15};
 const uint16_t max_adv_table[4] = {(500) + 2200, (500) + 1800, (500) + 1400, (500) + 1000};
 const uint8_t max_adv_grad_table[4] = {40, 30, 20, 10};
 const uint16_t min_ret_table[4] = {(500) + 1000, (500) + 800, (500) + 600, (500) + 400};
-# 122 "main.c"
+# 121 "main.c"
 uint16_t IG_table[131] = {0x0000};
 uint24_t deg2time_coeff[131] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2276, 2133, 2008, 1896, 1796,
