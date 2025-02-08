@@ -87,11 +87,11 @@ typedef enum {
 #define IG_ENABLE           (0)     //IGBT gate driber enable pin ON
 #define FIXED_IG_RPM        (15)    //Fixed ignition timing RPM
 #define MAX_MAP_RPM         (130)   //Max RPM of ignition map
-#define REVLIMIT_L          (126)    //Rev limitter enable Low RPM. Ignition once every 2 revolutions
-#define REVLIMIT_M          (128)    //Rev limitter enable Mid RPM. Ignition once every 3 revolutions
-#define REVLIMIT_H          (130)    //Rev limitter enable Hi RPM. Ignition is disabled
-#define PWJ_CUT_RPMH        (112)    //Power jet cut rpm @Power jet Enable
-#define PWJ_CUT_RPML        (110)    //For hysteresis
+#define REVLIMIT_L          (97)    //Rev limitter enable Low RPM. Ignition once every 2 revolutions
+#define REVLIMIT_M          (98)    //Rev limitter enable Mid RPM. Ignition once every 3 revolutions
+#define REVLIMIT_H          (99)    //Rev limitter enable Hi RPM. Ignition is disabled
+#define PWJ_CUT_RPMH        (85)    //Power jet cut rpm @Power jet Enable
+#define PWJ_CUT_RPML        (83)    //For hysteresis
 #define PWJ_DISABLE_RPMH    (30)    //Power jet cut rpm @Power jet Disaable
 #define PWJ_DISABLE_RPML    (28)    //For hysteresis
 
@@ -102,11 +102,11 @@ typedef enum {
 #define PU1_deg                 (3500)  //*100deg
 #define PU2_deg                 (500)   //*100deg PU2 timing=Fixed ignition timing @low RPM
 #define Ret_start_rpm           (55)    //*1/100rpm
-#define Ret_end_rpm             (115)    //*1/100rpm
+#define Ret_end_rpm             (80)    //*1/100rpm
 #define deg2time_coefficient    (1667)  //For calculate ignition deg to waiting time from PU1 (600,000/360)=1667
 
 const uint8_t adv_start_rpm_table[4] = {45, 35, 25, 15}; //*100rpm
-const uint16_t max_adv_table[4] = {PU2_deg + 2200, PU2_deg + 1800, PU2_deg + 1400, PU2_deg + 1000}; //deg
+const uint16_t max_adv_table[4] = {PU2_deg + 2000, PU2_deg + 1600, PU2_deg + 1200, PU2_deg + 800}; //deg
 const uint8_t max_adv_grad_table[4] = {40, 30, 20, 10}; //*100rpm
 const uint16_t min_ret_table[4] = {PU2_deg + 1000, PU2_deg + 800, PU2_deg + 600, PU2_deg + 400};
 
