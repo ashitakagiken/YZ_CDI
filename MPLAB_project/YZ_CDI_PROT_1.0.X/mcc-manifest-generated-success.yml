@@ -2,12 +2,12 @@
 
 manifest_file_version: 1.0.0
 project: YZ_CDI_PROT_1.0
-creation_date: 2024-12-11T07:43:36.578+09:00[Asia/Tokyo]
+creation_date: 2025-02-08T19:26:49.871+09:00[Asia/Tokyo]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
 device_name: PIC16F15245
-compiler: XC8 2.50
+compiler: XC8 2.45
 mcc_version: 5.5.0
 mcc_core_version: 5.7.0
 content_manager_version: 5.0.1
@@ -15,7 +15,7 @@ is_mcc_offline: false
 is_using_prerelease_versions: false
 mcc_content_registries: https://registry.npmjs.org/
 device_library: {library_class: com.microchip.mcc.melody.Library, name: Melody, version: 2.8.0}
-packs: {name: PIC16F1xxxx_DFP, version: 1.25.389}
+packs: {name: PIC16F1xxxx_DFP, version: 1.26.410}
 modules:
 - {name: '@mchp-mcc/default-peripheral-initializer', type: MELODY, version: 3.2.5}
 - {name: '@mchp-mcc/example-pic-timer', type: MELODY, version: 1.0.0}
@@ -26,8 +26,10 @@ modules:
 - {name: '@mchp-mcc/pin-content-processor', type: MELODY, version: 3.9.0}
 - {name: '@mchp-mcc/scf-pic8-adc-v1', type: MELODY, version: 3.0.10}
 - {name: '@mchp-mcc/scf-pic8-ccp-v1', type: MELODY, version: 4.0.16}
+- {name: '@mchp-mcc/scf-pic8-eusart-v1', type: MELODY, version: 7.1.5}
 - {name: '@mchp-mcc/scf-pic8-interrupt-v2', type: MELODY, version: 5.2.12}
 - {name: '@mchp-mcc/scf-pic8-osc-v2', type: MELODY, version: 4.2.2}
 - {name: '@mchp-mcc/scf-pic8-tmr0-v1', type: MELODY, version: 4.0.13}
 - {name: '@mchp-mcc/scf-pic8-tmr1-v1', type: MELODY, version: 4.3.9}
 - {name: '@mchp-mcc/scf-pic8-wdt-v1', type: MELODY, version: 5.0.5}
+- {name: '@mchp-mcc/uart-driver', type: MELODY, version: 1.10.0}

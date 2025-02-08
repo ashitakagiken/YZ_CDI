@@ -13,7 +13,7 @@
 */
 
 /*
-? [2024] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -42,8 +42,9 @@
 #include "config_bits.h"
 #include "../system/pins.h"
 #include "../adc/adc.h"
-#include "../capture/ccp1.h"
+#include "../compare/ccp1.h"
 #include "../peripheral/ccp2.h"
+#include "../uart/eusart1.h"
 #include "../timer/tmr0.h"
 #include "../timer/tmr1.h"
 #include "../system/watchdog.h"

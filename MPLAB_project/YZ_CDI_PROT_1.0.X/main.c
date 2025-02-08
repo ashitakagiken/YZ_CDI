@@ -7,6 +7,7 @@
  DATE           VERSION  UPDATE
  09/DEC/2024    1.00     DEVEROPMENT START
  08/FEB/2025    1.02     FIRST TEST FOR YZ250
+ 08/FEB/2025    1.03     RS232C TEST V1
  
  Version    a.b.c
             | | + Minor version up with only software change
@@ -56,8 +57,11 @@ void ccp1_enable(void);
 void ccp1_disable(void);
 void ccp2_enable(void);
 void ccp2_disable(void);
-
-
+void Write_Byte(char chr);
+void WriteString(const char *str);
+void EUSART1_Write(uint8_t txData);
+bool EUSART1_IsTxReady(void);
+void putch(char txData);
 //-------------------------------
 // Engine state
 //-------------------------------
@@ -156,9 +160,45 @@ void main() {
     check_sw_state();
     calc_map();
     ccp1_enable();
+
     while (1) {
         check_sw_state();
+        CLRWDT();
+        WriteString("hellow\r\n");
     }
+}
+
+//-------------------------------
+// UART wirte 1byte
+//-------------------------------
+
+void Write_Byte(char chr) { //1バイト送信関数
+    while (!TRMT); //送信バッファーが空になるまで待つ
+    TX1REG = chr; ////送信バッファーに1バイト書込み・送信
+}
+
+//-------------------------------
+// UART wirte string
+//-------------------------------
+
+void WriteString(const char *str) { //文字列送信関数
+    while (*str) {
+        Write_Byte(*str); //データ送信
+        str++;
+    }
+}
+
+void putch(char txData) {
+    while (!(EUSART1_IsTxReady()));
+    return EUSART1_Write(txData);
+}
+
+void EUSART1_Write(uint8_t txData) {
+    TX1REG = txData;
+}
+
+bool EUSART1_IsTxReady(void) {
+    return (bool) (PIR1bits.TX1IF && TX1STAbits.TXEN);
 }
 
 //-------------------------------
@@ -231,7 +271,8 @@ void check_sw_state() {
 
     sw1_pos = (ADST_1 << 1) + ADST_2;
     sw2_pos = (MAXAD_1 << 1) + MAXAD_2;
-    sw3_pos = (GRAD_1 << 1) + GRAD_2;
+    //sw3_pos = (GRAD_1 << 1) + GRAD_2;
+    sw3_pos = 3; //disable sw3 select for uart 
     sw4_pos = (ADRV_1 << 1) + ADRV_2;
 }
 
@@ -409,10 +450,10 @@ void initialize_system(void) {
 
     //PORT setting
     TRISA = 0b00110100; //IN:RA2/4/5 
-    TRISB = 0b11110000; //IN:RB4-7
+    TRISB = 0b10110000; //IN:RB4-5,7
     TRISC = 0b11111001; //IN:RC0/3-7 OUT:RC1/2
     INLVLA = 0b00110100; //RA2/4/5 is Schmitt triger
-    INLVLB = 0b11110000; //RB4-7 is Schmitt triger
+    INLVLB = 0b10110000; //RB4-5,7 is Schmitt triger
     INLVLC = 0b11111001; //RC0/3-7 is Schmitt triger
 
     //Timer1 setting for PU1 detection and Ignition
@@ -438,9 +479,24 @@ void initialize_system(void) {
     CCP1PPS = 0x10; //input capture pin1 = RC0
     CCP2PPS = 0b00010001;
     RC1PPS = 0x02; //Output compare pin2 = RC1
+    RX1PPS = 0x0F; //RX1 = RB7
+    RB6PPS = 0x05; //TX1 = RB6
     PPSLOCK = 0x55; //lock PPS
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 1;
+
+    //UART setting
+    //ABDEN disabled; WUE disabled; BRG16 8bit_generator; SCKP Non-Inverted; 
+    BAUD1CON = 0x40; 
+    //ADDEN disabled; CREN disabled; SREN disabled; RX9 8-bit; SPEN enabled; 
+    RC1STA = 0x80; 
+    //TX9D 0x0; BRGH lo_speed; SENDB sync_break_complete; SYNC asynchronous; TXEN enabled; TX9 8-bit; CSRC client; 
+    TX1STA = 0x22; 
+    //SPBRGL 51; 
+    SP1BRGL = 0x33; 
+    //SPBRGH 0; 
+    SP1BRGH = 0x0; 
+
 
     //Watch dog timer setting
     WDTCON = 0x13; //512ms interval

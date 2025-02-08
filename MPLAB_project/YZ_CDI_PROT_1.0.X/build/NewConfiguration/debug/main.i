@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 17 "main.c"
+# 18 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6198,11 +6198,11 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 17 "main.c" 2
+# 18 "main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdbool.h" 1 3
-# 19 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./yz_cdi.h" 1
 # 14 "./yz_cdi.h"
@@ -6232,11 +6232,11 @@ extern __bank0 __bit __timeout;
 
 
 #pragma config CP = OFF
-# 20 "main.c" 2
+# 21 "main.c" 2
 
 # 1 "./constant.h" 1
-# 21 "main.c" 2
-# 49 "main.c"
+# 22 "main.c" 2
+# 50 "main.c"
 void main(void);
 void initialize_system(void);
 void __attribute__((picinterrupt(("")))) InterruptManager(void);
@@ -6247,8 +6247,11 @@ void ccp1_enable(void);
 void ccp1_disable(void);
 void ccp2_enable(void);
 void ccp2_disable(void);
-
-
+void Write_Byte(char chr);
+void WriteString(const char *str);
+void EUSART1_Write(uint8_t txData);
+_Bool EUSART1_IsTxReady(void);
+void putch(char txData);
 
 
 
@@ -6267,12 +6270,12 @@ typedef enum {
     REVLIMIT_ENABLE,
     REVLIMIT_DISABLE,
 } REVLIMIT_STATE;
-# 108 "main.c"
+# 112 "main.c"
 const uint8_t adv_start_rpm_table[4] = {45, 35, 25, 15};
-const uint16_t max_adv_table[4] = {(500) + 2200, (500) + 1800, (500) + 1400, (500) + 1000};
+const uint16_t max_adv_table[4] = {(500) + 2000, (500) + 1600, (500) + 1200, (500) + 800};
 const uint8_t max_adv_grad_table[4] = {40, 30, 20, 10};
 const uint16_t min_ret_table[4] = {(500) + 1000, (500) + 800, (500) + 600, (500) + 400};
-# 121 "main.c"
+# 125 "main.c"
 uint16_t IG_table[131] = {0x0000};
 uint24_t deg2time_coeff[131] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2276, 2133, 2008, 1896, 1796,
@@ -6311,9 +6314,45 @@ void main() {
     check_sw_state();
     calc_map();
     ccp1_enable();
+
     while (1) {
         check_sw_state();
+        __asm("clrwdt");
+        putch("“c’†\r\n");
     }
+}
+
+
+
+
+
+void Write_Byte(char chr) {
+    while (!TRMT);
+    TX1REG = chr;
+}
+
+
+
+
+
+void WriteString(const char *str) {
+    while (*str) {
+        Write_Byte(*str);
+        str++;
+    }
+}
+
+void putch(char txData) {
+    while (!(EUSART1_IsTxReady()));
+    return EUSART1_Write(txData);
+}
+
+void EUSART1_Write(uint8_t txData) {
+    TX1REG = txData;
+}
+
+_Bool EUSART1_IsTxReady(void) {
+    return (_Bool) (PIR1bits.TX1IF && TX1STAbits.TXEN);
 }
 
 
@@ -6331,7 +6370,7 @@ void calc_map() {
     p1x = adv_start_rpm_table[sw1_pos];
     p2x = adv_start_rpm_table[sw1_pos] + max_adv_grad_table[sw3_pos];
     p3x = (55);
-    p4x = (115);
+    p4x = (80);
     p1y = (500);
     p2y = max_adv_table[sw2_pos];
     p3y = p2y;
@@ -6386,7 +6425,8 @@ void check_sw_state() {
 
     sw1_pos = (PORTCbits.RC4 << 1) + PORTCbits.RC3;
     sw2_pos = (PORTCbits.RC6 << 1) + PORTCbits.RC7;
-    sw3_pos = (PORTBbits.RB7 << 1) + PORTBbits.RB6;
+
+    sw3_pos = 3;
     sw4_pos = (PORTBbits.RB5 << 1) + PORTBbits.RB4;
 }
 
@@ -6427,19 +6467,19 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
 
 
             if (revlimit_state == REVLIMIT_ENABLE) {
-                if (rpm > (126)) {
+                if (rpm > (97)) {
                     orev_counter++;
                     if (orev_counter == 1) ignition_disable();
-                } else if (rpm > (128)) {
+                } else if (rpm > (98)) {
                     orev_counter++;
                     if (orev_counter == 2) ignition_disable();
-                } else if (rpm > (130)) ignition_disable();
+                } else if (rpm > (99)) ignition_disable();
             }
 
 
             if (pwj_state == PWJ_ENABLE) {
-                if (rpm > (112)) LATA0 = 1;
-                else if (rpm < (110)) LATA0 = 0;
+                if (rpm > (85)) LATA0 = 1;
+                else if (rpm < (83)) LATA0 = 0;
             } else if (pwj_state == PWJ_DISABLE) {
                 if (rpm > (30)) LATA0 = 1;
                 else if (rpm < (28)) LATA0 = 0;
@@ -6564,10 +6604,10 @@ void initialize_system(void) {
 
 
     TRISA = 0b00110100;
-    TRISB = 0b11110000;
+    TRISB = 0b10110000;
     TRISC = 0b11111001;
     INLVLA = 0b00110100;
-    INLVLB = 0b11110000;
+    INLVLB = 0b10110000;
     INLVLC = 0b11111001;
 
 
@@ -6593,9 +6633,23 @@ void initialize_system(void) {
     CCP1PPS = 0x10;
     CCP2PPS = 0b00010001;
     RC1PPS = 0x02;
+    RX1PPS = 0x0F;
+    RB6PPS = 0x05;
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 1;
+
+
+
+    BAUD1CON = 0x42;
+
+    RC1STA = 0x88;
+
+    TX1STA = 0x22;
+
+    SP1BRGL = 0x67;
+
+    SP1BRGH = 0x0;
 
 
     WDTCON = 0x13;

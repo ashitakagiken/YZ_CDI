@@ -185,7 +185,9 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1fff"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/hkzyk/Documents/YZ_CDI/MPLAB_project/YZ_CDI_PROT_1.0.X/debug/NewConfiguration/YZ_CDI_PROT_1.0_ptg"/>
         <property key="programmerToGoImageName" value="YZ_CDI_PROT_1.0_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -748,7 +750,7 @@
         <property key="periphComp4.gte" value="gt"/>
         <property key="periphComp5.gte" value="gt"/>
         <property key="periphComp6.gte" value="gt"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
                   value="C:/Users/hkzyk/Documents/YZ_CDI/MPLAB_project/YZ_CDI_PROT_1.0.X/debug/NewConfiguration/YZ_CDI_PROT_1.0_ptg"/>
         <property key="programmerToGoImageName" value="YZ_CDI_PROT_1.0_ptg"/>
