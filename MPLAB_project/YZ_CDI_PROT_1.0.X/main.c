@@ -61,9 +61,7 @@ void ccp2_enable(void);
 void ccp2_disable(void);
 void Write_Byte(char chr);
 void WriteString(const char *str);
-void tx_data_pc(void);
 void Write_table(void);
-void UART_print(char moji[]);
 
 //-------------------------------
 // Engine state
@@ -126,6 +124,7 @@ const uint16_t min_ret_table[4] = {PU2_deg + 1000, PU2_deg + 800, PU2_deg + 600,
 // Ignition timing angle is then converted to the waiting time from PU1.
 //-------------------------------
 uint16_t IG_table[131] = {0x0000};
+uint8_t deg_table[131] = {0x00};
 uint24_t deg2time_coeff[131] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2276, 2133, 2008, 1896, 1796,
     1707, 1625, 1552, 1484, 1422, 1365, 1313, 1264, 1219, 1177, 1138, 1101, 1067, 1034, 1004, 975, 948, 923, 898, 875,
@@ -142,6 +141,7 @@ uint24_t deg2time_coeff[131] = {
 uint8_t rpm = 0;
 uint8_t orev_counter = 0;
 uint16_t ig_counter = 0;
+uint16_t pu1_2_period_count;
 uint8_t map_sel = 0;
 uint8_t EG_state = 0;
 uint8_t revlimit_state = 0;
@@ -152,11 +152,7 @@ uint8_t sw1_pos = 2;
 uint8_t sw2_pos = 3;
 uint8_t sw3_pos = 3;
 uint8_t sw4_pos = 3;
-
-uint8_t a;
-uint8_t str3[2] = {
-    40, 151
-};
+uint16_t tx_buf[6] = {0x0000};
 
 //-------------------------------
 // main
@@ -171,52 +167,46 @@ void main() {
 
     while (1) {
         check_sw_state();
-        CLRWDT();
-        //tx_data_pc();
         Write_table();
     }
 }
-//-------------------------------
-// UART Transmit engine data for PC
-//-------------------------------
-
-void tx_data_pc(void) {
-    char bc = 15;
-    WriteString("11,50");
-    WriteString("\r\n");
-    a++;
-    if (a == 1) a = 0;
-}
 
 //-------------------------------
-// UART wirte test table
+// UART write data table
 //-------------------------------
 
-void Write_table() { //1バイト送信関数
-    char a[10];
-    //while (!TRMT); //送信バッファーが空になるまで待つ
-    //TX1REG = str3[1]; ////送信バッファーに1バイト書込み・送信
-    sprintf(a,"%d",str3[1]);     //mojiにcounter:countを代入
-    WriteString(a);
+void Write_table() {
+    uint8_t tx_data[6], a;
+
+    tx_buf[0] = rpm;
+    tx_buf[1] = deg_table[rpm];
+    tx_buf[2] = ig_counter;
+    tx_buf[3] = pu1_2_period_count;
+    tx_buf[4] = PORTAbits.RA0;
+    tx_buf[5] = EG_state;
+    for (a = 0; a <= 5; a++) {
+        sprintf(tx_data, "%d,", tx_buf[a]);
+        WriteString(tx_data);
+    }
     WriteString("\r\n");
 }
 
 //-------------------------------
-// UART wirte 1byte
+// UART write 1byte
 //-------------------------------
 
-void Write_Byte(char chr) { //1バイト送信関数
-    while (!TRMT); //送信バッファーが空になるまで待つ
-    TX1REG = chr; ////送信バッファーに1バイト書込み・送信
+void Write_Byte(char chr) {
+    while (!TRMT);
+    TX1REG = chr;
 }
 
 //-------------------------------
-// UART wirte string
+// UART write string
 //-------------------------------
 
-void WriteString(const char *str) { //文字列送信関数
+void WriteString(const char *str) {
     while (*str) {
-        Write_Byte(*str); //データ送信
+        Write_Byte(*str);
         str++;
     }
 }
@@ -260,6 +250,11 @@ void calc_map() {
     for (a = p4x + 1; a <= 130; a++) {
         IG_table[a] = p4y;
     }
+    //for debugging
+    for (a = 15; a <= 130; a++) {
+        deg_table[a] = (uint8_t) (IG_table[a] / 100);
+    }
+    //
     for (a = 15; a <= 130; a++) {
         temp1 = ((PU1_deg - IG_table[a]) >> 1);
         temp = ((deg2time_coeff[a] * temp1) >> 10);
@@ -365,12 +360,11 @@ void __interrupt() InterruptManager() {
         ccp2_disable();
         IGOUT = 0;
         ccp1_enable();
-        if (rpm < 40) calc_map();
+        if (rpm < 30) calc_map();
     }
 
     //Prevent reverse rotation  ex)stop at hill climbe
     if (IOCAF2) {
-        uint16_t pu1_2_period_count;
         if (EG_state == EG_RUN) {
             pu1_2_period_count = TMR1;
             if ((rpm < 25)&&((t1_count - pu1_2_period_count)<(pu1_2_period_count << 2))) {
