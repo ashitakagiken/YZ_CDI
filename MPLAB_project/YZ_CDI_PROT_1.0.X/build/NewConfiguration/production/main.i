@@ -6204,6 +6204,161 @@ extern __bank0 __bit __timeout;
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdbool.h" 1 3
 # 20 "main.c" 2
 
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef short ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 22 "main.c" 2
+
 # 1 "./yz_cdi.h" 1
 # 14 "./yz_cdi.h"
 #pragma config FEXTOSC = ECH
@@ -6232,11 +6387,11 @@ extern __bank0 __bit __timeout;
 
 
 #pragma config CP = OFF
-# 21 "main.c" 2
+# 23 "main.c" 2
 
 # 1 "./constant.h" 1
-# 22 "main.c" 2
-# 50 "main.c"
+# 24 "main.c" 2
+# 52 "main.c"
 void main(void);
 void initialize_system(void);
 void __attribute__((picinterrupt(("")))) InterruptManager(void);
@@ -6249,9 +6404,10 @@ void ccp2_enable(void);
 void ccp2_disable(void);
 void Write_Byte(char chr);
 void WriteString(const char *str);
-void EUSART1_Write(uint8_t txData);
-_Bool EUSART1_IsTxReady(void);
-void putch(char txData);
+void tx_data_pc(void);
+void Write_table(void);
+void UART_print(char moji[]);
+
 
 
 
@@ -6270,12 +6426,12 @@ typedef enum {
     REVLIMIT_ENABLE,
     REVLIMIT_DISABLE,
 } REVLIMIT_STATE;
-# 112 "main.c"
+# 115 "main.c"
 const uint8_t adv_start_rpm_table[4] = {45, 35, 25, 15};
 const uint16_t max_adv_table[4] = {(500) + 2000, (500) + 1600, (500) + 1200, (500) + 800};
 const uint8_t max_adv_grad_table[4] = {40, 30, 20, 10};
 const uint16_t min_ret_table[4] = {(500) + 1000, (500) + 800, (500) + 600, (500) + 400};
-# 125 "main.c"
+# 128 "main.c"
 uint16_t IG_table[131] = {0x0000};
 uint24_t deg2time_coeff[131] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2276, 2133, 2008, 1896, 1796,
@@ -6304,6 +6460,11 @@ uint8_t sw2_pos = 3;
 uint8_t sw3_pos = 3;
 uint8_t sw4_pos = 3;
 
+uint8_t a;
+uint8_t str3[2] = {
+    40, 151
+};
+
 
 
 
@@ -6318,8 +6479,33 @@ void main() {
     while (1) {
         check_sw_state();
         __asm("clrwdt");
-        WriteString("hellow\r\n");
+
+        Write_table();
     }
+}
+
+
+
+
+void tx_data_pc(void) {
+    char bc = 15;
+    WriteString("11,50");
+    WriteString("\r\n");
+    a++;
+    if (a == 1) a = 0;
+}
+
+
+
+
+
+void Write_table() {
+    char a[10];
+
+
+    sprintf(a,"%d",str3[1]);
+    WriteString(a);
+    WriteString("\r\n");
 }
 
 
@@ -6340,19 +6526,6 @@ void WriteString(const char *str) {
         Write_Byte(*str);
         str++;
     }
-}
-
-void putch(char txData) {
-    while (!(EUSART1_IsTxReady()));
-    return EUSART1_Write(txData);
-}
-
-void EUSART1_Write(uint8_t txData) {
-    TX1REG = txData;
-}
-
-_Bool EUSART1_IsTxReady(void) {
-    return (_Bool) (PIR1bits.TX1IF && TX1STAbits.TXEN);
 }
 
 
@@ -6640,6 +6813,11 @@ void initialize_system(void) {
     PPSLOCKbits.PPSLOCKED = 1;
 
 
+    BAUD1CON = 0x00;
+    RC1STA = 0x00;
+    TX1STA = 0x00;
+    SP1BRGL = 0x00;
+    SP1BRGH = 0x00;
 
     BAUD1CON = 0x40;
 

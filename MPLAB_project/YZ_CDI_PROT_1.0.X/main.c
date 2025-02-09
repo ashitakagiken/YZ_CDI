@@ -18,6 +18,8 @@
 #include<xc.h>
 #include<stdint.h>
 #include<stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "yz_cdi.h"
 #include "constant.h"
 
@@ -59,9 +61,10 @@ void ccp2_enable(void);
 void ccp2_disable(void);
 void Write_Byte(char chr);
 void WriteString(const char *str);
-void EUSART1_Write(uint8_t txData);
-bool EUSART1_IsTxReady(void);
-void putch(char txData);
+void tx_data_pc(void);
+void Write_table(void);
+void UART_print(char moji[]);
+
 //-------------------------------
 // Engine state
 //-------------------------------
@@ -150,6 +153,11 @@ uint8_t sw2_pos = 3;
 uint8_t sw3_pos = 3;
 uint8_t sw4_pos = 3;
 
+uint8_t a;
+uint8_t str3[2] = {
+    40, 151
+};
+
 //-------------------------------
 // main
 //-------------------------------
@@ -164,8 +172,33 @@ void main() {
     while (1) {
         check_sw_state();
         CLRWDT();
-        WriteString("hellow\r\n");
+        //tx_data_pc();
+        Write_table();
     }
+}
+//-------------------------------
+// UART Transmit engine data for PC
+//-------------------------------
+
+void tx_data_pc(void) {
+    char bc = 15;
+    WriteString("11,50");
+    WriteString("\r\n");
+    a++;
+    if (a == 1) a = 0;
+}
+
+//-------------------------------
+// UART wirte test table
+//-------------------------------
+
+void Write_table() { //1バイト送信関数
+    char a[10];
+    //while (!TRMT); //送信バッファーが空になるまで待つ
+    //TX1REG = str3[1]; ////送信バッファーに1バイト書込み・送信
+    sprintf(a,"%d",str3[1]);     //mojiにcounter:countを代入
+    WriteString(a);
+    WriteString("\r\n");
 }
 
 //-------------------------------
@@ -186,19 +219,6 @@ void WriteString(const char *str) { //文字列送信関数
         Write_Byte(*str); //データ送信
         str++;
     }
-}
-
-void putch(char txData) {
-    while (!(EUSART1_IsTxReady()));
-    return EUSART1_Write(txData);
-}
-
-void EUSART1_Write(uint8_t txData) {
-    TX1REG = txData;
-}
-
-bool EUSART1_IsTxReady(void) {
-    return (bool) (PIR1bits.TX1IF && TX1STAbits.TXEN);
 }
 
 //-------------------------------
@@ -486,16 +506,21 @@ void initialize_system(void) {
     PPSLOCKbits.PPSLOCKED = 1;
 
     //UART setting
+    BAUD1CON = 0x00;
+    RC1STA = 0x00;
+    TX1STA = 0x00;
+    SP1BRGL = 0x00;
+    SP1BRGH = 0x00;
     //ABDEN disabled; WUE disabled; BRG16 8bit_generator; SCKP Non-Inverted; 
-    BAUD1CON = 0x40; 
+    BAUD1CON = 0x40;
     //ADDEN disabled; CREN disabled; SREN disabled; RX9 8-bit; SPEN enabled; 
-    RC1STA = 0x80; 
+    RC1STA = 0x80;
     //TX9D 0x0; BRGH lo_speed; SENDB sync_break_complete; SYNC asynchronous; TXEN enabled; TX9 8-bit; CSRC client; 
-    TX1STA = 0x22; 
+    TX1STA = 0x22;
     //SPBRGL 51; 
-    SP1BRGL = 0x33; 
+    SP1BRGL = 0x33;
     //SPBRGH 0; 
-    SP1BRGH = 0x0; 
+    SP1BRGH = 0x0;
 
 
     //Watch dog timer setting
