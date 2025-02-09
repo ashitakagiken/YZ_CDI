@@ -8,6 +8,7 @@
  09/DEC/2024    1.00     DEVEROPMENT START
  08/FEB/2025    1.02     FIRST TEST FOR YZ250
  08/FEB/2025    1.03     RS232C TEST V1
+ 09/FEB/2025    1.04     Rev limitter debuged
  
  Version    a.b.c
             | | + Minor version up with only software change
@@ -164,8 +165,6 @@ void main() {
     check_sw_state();
     calc_map();
     ccp1_enable();
-    ccp2_enable();
-
     while (1) {
         check_sw_state();
         Write_table();
@@ -331,7 +330,7 @@ void __interrupt() InterruptManager() {
             if (revlimit_state == REVLIMIT_ENABLE) {
                 if (rpm > REVLIMIT_L) {
                     orev_counter++;
-                    if (orev_counter == 1) ignition_disable();
+                    if (orev_counter == 2) ignition_disable();
                 } else if (rpm > REVLIMIT_M) {
                     orev_counter++;
                     if (orev_counter == 2) ignition_disable();
@@ -362,7 +361,7 @@ void __interrupt() InterruptManager() {
         IGOUT = 0;
         ccp1_enable();
         if (rpm < 30) calc_map();
-        //CCP2IF = 0;
+        CCP2IF = 0;
     }
 
     //Prevent reverse rotation  ex)stop at hill climbe
@@ -431,7 +430,7 @@ void ccp1_disable(void) {
 
 void ccp2_enable(void) {
     CCP2IE = 0;
-    //CCP2IF = 0;
+    CCP2IF = 0;
     CCP2CON = 0x88;
     CCP2IE = 1;
 }
@@ -442,7 +441,6 @@ void ccp2_enable(void) {
 
 void ccp2_disable(void) {
     CCP2IE = 0;
-    //CCP2IF = 0;
     CCP2CON = 0;
 }
 
@@ -487,8 +485,6 @@ void initialize_system(void) {
     CCP2CAP = 0x0; //CCP2 Pin is RC1 (Selected by CCP2PPS)
     CCPR1 = 0x0000;
     CCPR2 = 0x0000;
-    CCP1CON = 0x84;
-    CCP2CON = 0x88;
 
     //IOC setting
     IOCAN2 = 1; //RA2 negative edge detection
@@ -538,5 +534,7 @@ void initialize_system(void) {
     CCP2IE = 1;
     TMR1IE = 1;
     IOCIE = 1;
+
+    ccp2_disable();
     IGOUT = 0;
 }
