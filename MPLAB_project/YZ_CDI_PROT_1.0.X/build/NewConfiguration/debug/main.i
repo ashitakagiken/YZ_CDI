@@ -6471,6 +6471,7 @@ void main() {
     check_sw_state();
     calc_map();
     ccp1_enable();
+    ccp2_enable();
 
     while (1) {
         check_sw_state();
@@ -6483,7 +6484,7 @@ void main() {
 
 
 void Write_table() {
-    uint8_t tx_data[6], a;
+    uint8_t tx_data[8], a;
 
     tx_buf[0] = rpm;
     tx_buf[1] = deg_table[rpm];
@@ -6615,7 +6616,7 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
 
             rpm = (uint8_t) (numerator_rpm / (t1_count >> 4));
 
-            if ((rpm > (10))&&(rpm <= (130))) {
+            if ((rpm > (15))&&(rpm <= (130))) {
                 ig_counter = IG_table[rpm];
                 LATC2 = (0);
                 if ((ig_counter - 15) > TMR1) {
@@ -6668,7 +6669,7 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
         LATC1 = 0;
         ccp1_enable();
         if (rpm < 30) calc_map();
-
+        CCP2IF = 0;
     }
 
 
@@ -6727,6 +6728,7 @@ void ccp1_enable(void) {
 
 void ccp1_disable(void) {
     CCP1IE = 0;
+
     CCP1CON = 0;
 }
 
@@ -6736,7 +6738,7 @@ void ccp1_disable(void) {
 
 void ccp2_enable(void) {
     CCP2IE = 0;
-    CCP2IF = 0;
+
     CCP2CON = 0x88;
     CCP2IE = 1;
 }
@@ -6747,6 +6749,7 @@ void ccp2_enable(void) {
 
 void ccp2_disable(void) {
     CCP2IE = 0;
+
     CCP2CON = 0;
 }
 
@@ -6791,6 +6794,8 @@ void initialize_system(void) {
     CCP2CAP = 0x0;
     CCPR1 = 0x0000;
     CCPR2 = 0x0000;
+    CCP1CON = 0x84;
+    CCP2CON = 0x88;
 
 
     IOCAN2 = 1;
@@ -6819,9 +6824,9 @@ void initialize_system(void) {
 
     RC1STA = 0x80;
 
-    TX1STA = 0x22;
+    TX1STA = 0x26;
 
-    SP1BRGL = 0x33;
+    SP1BRGL = 0x22;
 
     SP1BRGH = 0x0;
 
@@ -6840,7 +6845,5 @@ void initialize_system(void) {
     CCP2IE = 1;
     TMR1IE = 1;
     IOCIE = 1;
-
-    ccp2_disable();
     LATC1 = 0;
 }

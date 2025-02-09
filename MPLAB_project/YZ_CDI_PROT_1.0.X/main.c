@@ -90,7 +90,7 @@ typedef enum {
 #define IG_GATE_ON          (1)     //IGBT gate driver input ON
 #define IG_DISABLE          (1)     //IGBT gate driber enable pin OFF
 #define IG_ENABLE           (0)     //IGBT gate driber enable pin ON
-#define FIXED_IG_RPM        (10)    //Fixed ignition timing RPM
+#define FIXED_IG_RPM        (15)    //Fixed ignition timing RPM
 #define MAX_MAP_RPM         (130)   //Max RPM of ignition map
 #define REVLIMIT_L          (97)    //Rev limitter enable Low RPM. Ignition once every 2 revolutions
 #define REVLIMIT_M          (98)    //Rev limitter enable Mid RPM. Ignition once every 3 revolutions
@@ -164,6 +164,7 @@ void main() {
     check_sw_state();
     calc_map();
     ccp1_enable();
+    ccp2_enable();
 
     while (1) {
         check_sw_state();
@@ -361,6 +362,7 @@ void __interrupt() InterruptManager() {
         IGOUT = 0;
         ccp1_enable();
         if (rpm < 30) calc_map();
+        //CCP2IF = 0;
     }
 
     //Prevent reverse rotation  ex)stop at hill climbe
@@ -377,7 +379,7 @@ void __interrupt() InterruptManager() {
     }
     //If low rpm or stop
     if (TMR1IF) {
-        //EG_state = EG_LOW;
+        EG_state = EG_LOW;
         TMR1ON = 0;
         TMR1H = 0x00;
         TMR1L = 0x00;
@@ -419,6 +421,7 @@ void ccp1_enable(void) {
 
 void ccp1_disable(void) {
     CCP1IE = 0;
+    //CCP1IF = 0;
     CCP1CON = 0;
 }
 
@@ -428,7 +431,7 @@ void ccp1_disable(void) {
 
 void ccp2_enable(void) {
     CCP2IE = 0;
-    CCP2IF = 0;
+    //CCP2IF = 0;
     CCP2CON = 0x88;
     CCP2IE = 1;
 }
@@ -439,6 +442,7 @@ void ccp2_enable(void) {
 
 void ccp2_disable(void) {
     CCP2IE = 0;
+    //CCP2IF = 0;
     CCP2CON = 0;
 }
 
@@ -483,6 +487,8 @@ void initialize_system(void) {
     CCP2CAP = 0x0; //CCP2 Pin is RC1 (Selected by CCP2PPS)
     CCPR1 = 0x0000;
     CCPR2 = 0x0000;
+    CCP1CON = 0x84;
+    CCP2CON = 0x88;
 
     //IOC setting
     IOCAN2 = 1; //RA2 negative edge detection
@@ -532,7 +538,5 @@ void initialize_system(void) {
     CCP2IE = 1;
     TMR1IE = 1;
     IOCIE = 1;
-    //TMR2IE =1;
-    ccp2_disable();
     IGOUT = 0;
 }
