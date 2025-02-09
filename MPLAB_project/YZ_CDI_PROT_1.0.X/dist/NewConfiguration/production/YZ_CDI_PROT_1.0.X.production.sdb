@@ -3,17 +3,17 @@
 [d edition pro ]
 [d chip 16F15245 ]
 [d frameptr 6 ]
-"273 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"272 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [e E3983 . `uc
 PWJ_ENABLE 0
 PWJ_DISABLE 1
 ]
-"281
+"280
 [e E3987 . `uc
 REVLIMIT_ENABLE 0
 REVLIMIT_DISABLE 1
 ]
-"302
+"301
 [e E3979 . `uc
 EG_LOW 0
 EG_RUN 1
@@ -49,38 +49,37 @@ EG_RUN 1
 [v i1___tmul __tmul `(um  1 e 3 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"161 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"162 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"179
+"178
 [v _Write_table Write_table `(v  1 e 1 0 ]
-"199
+"198
 [v _Write_Byte Write_Byte `(v  1 e 1 0 ]
-"208
+"207
 [v _WriteString WriteString `(v  1 e 1 0 ]
-"219
+"218
 [v _calc_map calc_map `(v  1 e 1 0 ]
 [v i1_calc_map calc_map `(v  1 e 1 0 ]
-"270
+"269
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
-"299
+"298
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
-"400
+"399
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
-"411
+"410
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
-"422
+"421
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
-"432
+"431
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-[v i1_ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-"443
+"442
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
-"453
+"451
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 "446 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f15245.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
-[s S47 . 1 `uc 1 RA0 1 0 :1:0 
+[s S43 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -88,22 +87,22 @@ EG_RUN 1
 `uc 1 RA5 1 0 :1:5 
 ]
 "461
-[u S54 . 1 `S47 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES54  1 e 1 @12 ]
+[u S50 . 1 `S43 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES50  1 e 1 @12 ]
 "496
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
-[s S106 . 1 `uc 1 . 1 0 :4:0 
+[s S102 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RB4 1 0 :1:4 
 `uc 1 RB5 1 0 :1:5 
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
 "510
-[u S112 . 1 `S106 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES112  1 e 1 @13 ]
+[u S108 . 1 `S102 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES108  1 e 1 @13 ]
 "535
 [v _PORTC PORTC `VEuc  1 e 1 @14 ]
-[s S85 . 1 `uc 1 RC0 1 0 :1:0 
+[s S81 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -113,8 +112,8 @@ EG_RUN 1
 `uc 1 RC7 1 0 :1:7 
 ]
 "552
-[u S94 . 1 `S85 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES94  1 e 1 @14 ]
+[u S90 . 1 `S81 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES90  1 e 1 @14 ]
 "597
 [v _TRISA TRISA `VEuc  1 e 1 @18 ]
 "647
@@ -247,94 +246,89 @@ EG_RUN 1
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"113 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"114 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _adv_start_rpm_table adv_start_rpm_table `DC[4]uc  1 e 4 0 ]
-"114
-[v _max_adv_table max_adv_table `DC[4]us  1 e 8 0 ]
 "115
-[v _max_adv_grad_table max_adv_grad_table `DC[4]uc  1 e 4 0 ]
+[v _max_adv_table max_adv_table `DC[4]us  1 e 8 0 ]
 "116
+[v _max_adv_grad_table max_adv_grad_table `DC[4]uc  1 e 4 0 ]
+"117
 [v _min_ret_table min_ret_table `DC[4]us  1 e 8 0 ]
-"126
-[v _IG_table IG_table `[131]us  1 e 262 @8807 ]
 "127
-[v _deg_table deg_table `[131]uc  1 e 131 @9069 ]
+[v _IG_table IG_table `[131]us  1 e 262 @8807 ]
 "128
+[v _deg_table deg_table `[131]uc  1 e 131 @9069 ]
+"129
 [v _deg2time_coeff deg2time_coeff `[131]um  1 e 393 @8414 ]
-"141
-[v _rpm rpm `uc  1 e 1 0 ]
 "142
-[v _orev_counter orev_counter `uc  1 e 1 0 ]
+[v _rpm rpm `uc  1 e 1 0 ]
 "143
-[v _ig_counter ig_counter `us  1 e 2 0 ]
+[v _orev_counter orev_counter `uc  1 e 1 0 ]
 "144
-[v _t1_count t1_count `us  1 e 2 0 ]
+[v _ig_counter ig_counter `us  1 e 2 0 ]
 "145
+[v _t1_count t1_count `us  1 e 2 0 ]
+"146
 [v _pu1_2_period_count pu1_2_period_count `us  1 e 2 0 ]
-"147
-[v _EG_state EG_state `uc  1 e 1 0 ]
 "148
-[v _revlimit_state revlimit_state `uc  1 e 1 0 ]
+[v _EG_state EG_state `uc  1 e 1 0 ]
 "149
+[v _revlimit_state revlimit_state `uc  1 e 1 0 ]
+"150
 [v _pwj_state pwj_state `uc  1 e 1 0 ]
-"151
-[v _sw1_pos sw1_pos `uc  1 e 1 0 ]
 "152
-[v _sw2_pos sw2_pos `uc  1 e 1 0 ]
+[v _sw1_pos sw1_pos `uc  1 e 1 0 ]
 "153
-[v _sw3_pos sw3_pos `uc  1 e 1 0 ]
+[v _sw2_pos sw2_pos `uc  1 e 1 0 ]
 "154
-[v _sw4_pos sw4_pos `uc  1 e 1 0 ]
+[v _sw3_pos sw3_pos `uc  1 e 1 0 ]
 "155
+[v _sw4_pos sw4_pos `uc  1 e 1 0 ]
+"156
 [v _tx_buf tx_buf `[6]us  1 e 12 0 ]
-"161
+"162
 [v _main main `(v  1 e 1 0 ]
 {
-"173
+"172
 } 0
-"453
+"451
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 {
-"542
+"538
 } 0
-"270
+"269
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
 {
-"293
+"292
 } 0
-"432
-[v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-{
-"437
-} 0
-"411
+"410
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"416
+"415
 } 0
-"219
+"218
 [v _calc_map calc_map `(v  1 e 1 0 ]
 {
-"225
-[v calc_map@temp1 temp1 `um  1 a 3 30 ]
 "224
+[v calc_map@temp1 temp1 `um  1 a 3 30 ]
+"223
 [v calc_map@temp temp `um  1 a 3 27 ]
-"221
+"220
 [v calc_map@p4y p4y `us  1 a 2 41 ]
 [v calc_map@p3y p3y `us  1 a 2 39 ]
 [v calc_map@p2y p2y `us  1 a 2 37 ]
 [v calc_map@p1y p1y `us  1 a 2 35 ]
-"223
+"222
 [v calc_map@a a `uc  1 a 1 47 ]
-"220
+"219
 [v calc_map@p4x p4x `uc  1 a 1 46 ]
 [v calc_map@p3x p3x `uc  1 a 1 45 ]
 [v calc_map@p2x p2x `uc  1 a 1 44 ]
 [v calc_map@p1x p1x `uc  1 a 1 43 ]
-"222
+"221
 [v calc_map@coeff_p3_p4 coeff_p3_p4 `uc  1 a 1 34 ]
 [v calc_map@coeff_p1_p2 coeff_p1_p2 `uc  1 a 1 33 ]
-"264
+"263
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -368,13 +362,13 @@ EG_RUN 1
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"179 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"178 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _Write_table Write_table `(v  1 e 1 0 ]
 {
-"180
+"179
 [v Write_table@tx_data tx_data `[8]uc  1 a 8 53 ]
 [v Write_table@a a `uc  1 a 1 61 ]
-"193
+"192
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -475,53 +469,48 @@ EG_RUN 1
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"208 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"207 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _WriteString WriteString `(v  1 e 1 0 ]
 {
 [v WriteString@str str `*.26DCuc  1 p 2 1 ]
-"213
+"212
 } 0
-"199
+"198
 [v _Write_Byte Write_Byte `(v  1 e 1 0 ]
 {
 [v Write_Byte@chr chr `uc  1 a 1 wreg ]
 [v Write_Byte@chr chr `uc  1 a 1 wreg ]
 [v Write_Byte@chr chr `uc  1 a 1 0 ]
-"202
+"201
 } 0
-"299
+"298
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 {
-"394
+"393
 } 0
-"432
-[v i1_ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-{
-"437
-} 0
-"219
+"218
 [v i1_calc_map calc_map `(v  1 e 1 0 ]
 {
-"225
-[v i1calc_map@temp1 temp1 `um  1 a 3 18 ]
 "224
+[v i1calc_map@temp1 temp1 `um  1 a 3 18 ]
+"223
 [v i1calc_map@temp temp `um  1 a 3 15 ]
-"221
+"220
 [v i1calc_map@p4y p4y `us  1 a 2 29 ]
 [v i1calc_map@p3y p3y `us  1 a 2 27 ]
 [v i1calc_map@p2y p2y `us  1 a 2 25 ]
 [v i1calc_map@p1y p1y `us  1 a 2 23 ]
-"223
+"222
 [v i1calc_map@a a `uc  1 a 1 35 ]
-"220
+"219
 [v i1calc_map@p4x p4x `uc  1 a 1 34 ]
 [v i1calc_map@p3x p3x `uc  1 a 1 33 ]
 [v i1calc_map@p2x p2x `uc  1 a 1 32 ]
 [v i1calc_map@p1x p1x `uc  1 a 1 31 ]
-"222
+"221
 [v i1calc_map@coeff_p3_p4 coeff_p3_p4 `uc  1 a 1 22 ]
 [v i1calc_map@coeff_p1_p2 coeff_p1_p2 `uc  1 a 1 21 ]
-"264
+"263
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v i1___wmul __wmul `(ui  1 e 2 0 ]
@@ -555,23 +544,28 @@ EG_RUN 1
 [v i1___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"400 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"399 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
 {
-"405
+"404
 } 0
-"411
+"410
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"416
+"415
 } 0
-"443
+"442
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 {
-"447
+"445
 } 0
-"422
+"431
+[v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
+{
+"436
+} 0
+"421
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
 {
-"426
+"425
 } 0

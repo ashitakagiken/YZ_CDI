@@ -534,7 +534,5 @@ void initialize_system(void) {
     CCP2IE = 1;
     TMR1IE = 1;
     IOCIE = 1;
-
-    ccp2_disable();
     IGOUT = 0;
 }
