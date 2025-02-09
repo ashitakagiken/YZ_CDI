@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: YZ_CDI_PROT_1.0
-creation_date: 2025-02-09T07:49:41.330+09:00[Asia/Tokyo]
+creation_date: 2025-02-09T12:26:58.601+09:00[Asia/Tokyo]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
@@ -31,5 +31,4 @@ modules:
 - {name: '@mchp-mcc/scf-pic8-osc-v2', type: MELODY, version: 4.2.2}
 - {name: '@mchp-mcc/scf-pic8-tmr0-v1', type: MELODY, version: 4.0.13}
 - {name: '@mchp-mcc/scf-pic8-tmr1-v1', type: MELODY, version: 4.3.9}
-- {name: '@mchp-mcc/scf-pic8-wdt-v1', type: MELODY, version: 5.0.5}
 - {name: '@mchp-mcc/uart-driver', type: MELODY, version: 1.10.0}

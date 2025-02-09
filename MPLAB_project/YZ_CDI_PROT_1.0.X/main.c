@@ -90,7 +90,7 @@ typedef enum {
 #define IG_GATE_ON          (1)     //IGBT gate driver input ON
 #define IG_DISABLE          (1)     //IGBT gate driber enable pin OFF
 #define IG_ENABLE           (0)     //IGBT gate driber enable pin ON
-#define FIXED_IG_RPM        (15)    //Fixed ignition timing RPM
+#define FIXED_IG_RPM        (10)    //Fixed ignition timing RPM
 #define MAX_MAP_RPM         (130)   //Max RPM of ignition map
 #define REVLIMIT_L          (97)    //Rev limitter enable Low RPM. Ignition once every 2 revolutions
 #define REVLIMIT_M          (98)    //Rev limitter enable Mid RPM. Ignition once every 3 revolutions
@@ -141,12 +141,12 @@ uint24_t deg2time_coeff[131] = {
 uint8_t rpm = 0;
 uint8_t orev_counter = 0;
 uint16_t ig_counter = 0;
-uint16_t pu1_2_period_count;
+uint16_t t1_count = 0;
+uint16_t pu1_2_period_count = 0;
 uint8_t map_sel = 0;
 uint8_t EG_state = 0;
 uint8_t revlimit_state = 0;
 uint8_t pwj_state = 0;
-uint8_t test = 0;
 const uint16_t numerator_rpm = 37500;
 uint8_t sw1_pos = 2;
 uint8_t sw2_pos = 3;
@@ -176,12 +176,12 @@ void main() {
 //-------------------------------
 
 void Write_table() {
-    uint8_t tx_data[6], a;
+    uint8_t tx_data[8], a;
 
     tx_buf[0] = rpm;
     tx_buf[1] = deg_table[rpm];
     tx_buf[2] = ig_counter;
-    tx_buf[3] = pu1_2_period_count;
+    tx_buf[3] = t1_count;
     tx_buf[4] = PORTAbits.RA0;
     tx_buf[5] = EG_state;
     for (a = 0; a <= 5; a++) {
@@ -296,7 +296,6 @@ void check_sw_state() {
 //-------------------------------
 
 void __interrupt() InterruptManager() {
-    uint16_t t1_count;
     //PU1 input change detect
     if (CCP1IF) {
         if (EG_state == EG_RUN) {
@@ -305,8 +304,9 @@ void __interrupt() InterruptManager() {
             TMR1L = 0x00;
             TMR1ON = 1;
             ccp1_disable();
+            t1_count = CCPR1;
 
-            rpm = (uint8_t) (numerator_rpm / (CCPR1 >> 4));
+            rpm = (uint8_t) (numerator_rpm / (t1_count >> 4));
 
             if ((rpm > FIXED_IG_RPM)&&(rpm <= MAX_MAP_RPM)) {
                 ig_counter = IG_table[rpm];
@@ -345,10 +345,10 @@ void __interrupt() InterruptManager() {
                 if (rpm > PWJ_DISABLE_RPMH) PWJOUT = 1;
                 else if (rpm < PWJ_DISABLE_RPML) PWJOUT = 0;
             }
-        }
-
-        if (EG_state == EG_LOW) {
-            TMR1 = 0;
+        } else if (EG_state == EG_LOW) {
+            TMR1ON = 0;
+            TMR1H = 0x00;
+            TMR1L = 0x00;
             TMR1ON = 1;
             EG_state = EG_RUN;
         }
@@ -377,9 +377,10 @@ void __interrupt() InterruptManager() {
     }
     //If low rpm or stop
     if (TMR1IF) {
-        EG_state = EG_LOW;
+        //EG_state = EG_LOW;
         TMR1ON = 0;
-        TMR1 = 0;
+        TMR1H = 0x00;
+        TMR1L = 0x00;
         CCPR1 = 0;
         CCPR2 = 0;
         TMR1IF = 0;
@@ -509,13 +510,12 @@ void initialize_system(void) {
     BAUD1CON = 0x40;
     //ADDEN disabled; CREN disabled; SREN disabled; RX9 8-bit; SPEN enabled; 
     RC1STA = 0x80;
-    //TX9D 0x0; BRGH lo_speed; SENDB sync_break_complete; SYNC asynchronous; TXEN enabled; TX9 8-bit; CSRC client; 
-    TX1STA = 0x22;
-    //SPBRGL 51; 
-    SP1BRGL = 0x33;
+    //TX9D 0x0; BRGH Hi_speed; SENDB sync_break_complete; SYNC asynchronous; TXEN enabled; TX9 8-bit; CSRC client; 
+    TX1STA = 0x26;
+    //baud late 57.6k 
+    SP1BRGL = 0x22;
     //SPBRGH 0; 
     SP1BRGH = 0x0;
-
 
     //Watch dog timer setting
     WDTCON = 0x13; //512ms interval

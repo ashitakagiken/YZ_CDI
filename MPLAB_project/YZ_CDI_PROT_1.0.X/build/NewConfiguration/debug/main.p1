@@ -1215,8 +1215,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Write_table ]
 [f ]
 "179
-[; ;main.c: 179:     uint8_t tx_data[8], a;
-[v _tx_data `uc ~T0 @X0 -> 8 `i a ]
+[; ;main.c: 179:     uint8_t tx_data[6], a;
+[v _tx_data `uc ~T0 @X0 -> 6 `i a ]
 [v _a `uc ~T0 @X0 1 a ]
 "181
 [; ;main.c: 181:     tx_buf[0] = rpm;
@@ -1832,376 +1832,379 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < -> _rpm `i -> 30 `i 600  ]
 [e ( _calc_map ..  ]
 [e :U 600 ]
-"364
-[; ;main.c: 364:     }
+"365
+[; ;main.c: 365:     }
 }
 [e :U 599 ]
-"367
-[; ;main.c: 367:     if (IOCAF2) {
+"368
+[; ;main.c: 368:     if (IOCAF2) {
 [e $ ! _IOCAF2 601  ]
 {
-"368
-[; ;main.c: 368:         if (EG_state == EG_RUN) {
+"369
+[; ;main.c: 369:         if (EG_state == EG_RUN) {
 [e $ ! == -> _EG_state `i -> . `E3979 1 `i 602  ]
 {
-"369
-[; ;main.c: 369:             pu1_2_period_count = TMR1;
-[e = _pu1_2_period_count _TMR1 ]
 "370
-[; ;main.c: 370:             if ((rpm < 25)&&((t1_count - pu1_2_period_count)<(pu1_2_period_count << 2))) {
+[; ;main.c: 370:             pu1_2_period_count = TMR1;
+[e = _pu1_2_period_count _TMR1 ]
+"371
+[; ;main.c: 371:             if ((rpm < 25)&&((t1_count - pu1_2_period_count)<(pu1_2_period_count << 2))) {
 [e $ ! && < -> _rpm `i -> 25 `i < - -> _t1_count `ui -> _pu1_2_period_count `ui << -> _pu1_2_period_count `ui -> 2 `i 603  ]
 {
-"371
-[; ;main.c: 371:                 LATC2 = (1);
-[e = _LATC2 -> -> 1 `i `b ]
 "372
-[; ;main.c: 372:             }
+[; ;main.c: 372:                 LATC2 = (1);
+[e = _LATC2 -> -> 1 `i `b ]
+"373
+[; ;main.c: 373:             }
 }
 [e :U 603 ]
-"373
-[; ;main.c: 373:             ccp1_enable();
-[e ( _ccp1_enable ..  ]
 "374
-[; ;main.c: 374:             if (rpm < 40) calc_map();
+[; ;main.c: 374:             ccp1_enable();
+[e ( _ccp1_enable ..  ]
+"375
+[; ;main.c: 375:             if (rpm < 40) calc_map();
 [e $ ! < -> _rpm `i -> 40 `i 604  ]
 [e ( _calc_map ..  ]
 [e :U 604 ]
-"375
-[; ;main.c: 375:         }
+"376
+[; ;main.c: 376:         }
 }
 [e :U 602 ]
-"376
-[; ;main.c: 376:         IOCAF2 = 0;
-[e = _IOCAF2 -> -> 0 `i `b ]
 "377
-[; ;main.c: 377:     }
+[; ;main.c: 377:         IOCAF2 = 0;
+[e = _IOCAF2 -> -> 0 `i `b ]
+"378
+[; ;main.c: 378:     }
 }
 [e :U 601 ]
-"379
-[; ;main.c: 379:     if (TMR1IF) {
+"380
+[; ;main.c: 380:     if (TMR1IF) {
 [e $ ! _TMR1IF 605  ]
 {
 "381
-[; ;main.c: 381:         TMR1ON = 0;
-[e = _TMR1ON -> -> 0 `i `b ]
+[; ;main.c: 381:         EG_state = EG_LOW;
+[e = _EG_state -> . `E3979 0 `uc ]
 "382
-[; ;main.c: 382:         TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
+[; ;main.c: 382:         TMR1ON = 0;
+[e = _TMR1ON -> -> 0 `i `b ]
 "383
-[; ;main.c: 383:         TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
+[; ;main.c: 383:         TMR1H = 0x00;
+[e = _TMR1H -> -> 0 `i `uc ]
 "384
-[; ;main.c: 384:         CCPR1 = 0;
-[e = _CCPR1 -> -> 0 `i `us ]
+[; ;main.c: 384:         TMR1L = 0x00;
+[e = _TMR1L -> -> 0 `i `uc ]
 "385
-[; ;main.c: 385:         CCPR2 = 0;
-[e = _CCPR2 -> -> 0 `i `us ]
+[; ;main.c: 385:         CCPR1 = 0;
+[e = _CCPR1 -> -> 0 `i `us ]
 "386
-[; ;main.c: 386:         TMR1IF = 0;
-[e = _TMR1IF -> -> 0 `i `b ]
+[; ;main.c: 386:         CCPR2 = 0;
+[e = _CCPR2 -> -> 0 `i `us ]
 "387
-[; ;main.c: 387:         LATA0 = 0;
-[e = _LATA0 -> -> 0 `i `b ]
+[; ;main.c: 387:         TMR1IF = 0;
+[e = _TMR1IF -> -> 0 `i `b ]
 "388
-[; ;main.c: 388:         ccp2_disable();
-[e ( _ccp2_disable ..  ]
+[; ;main.c: 388:         LATA0 = 0;
+[e = _LATA0 -> -> 0 `i `b ]
 "389
-[; ;main.c: 389:         LATC1 = 0;
-[e = _LATC1 -> -> 0 `i `b ]
+[; ;main.c: 389:         ccp2_disable();
+[e ( _ccp2_disable ..  ]
 "390
-[; ;main.c: 390:     }
+[; ;main.c: 390:         LATC1 = 0;
+[e = _LATC1 -> -> 0 `i `b ]
+"391
+[; ;main.c: 391:     }
 }
 [e :U 605 ]
-"391
-[; ;main.c: 391:     __asm("clrwdt");
-[; <" clrwdt ;# ">
 "392
-[; ;main.c: 392: }
+[; ;main.c: 392:     __asm("clrwdt");
+[; <" clrwdt ;# ">
+"393
+[; ;main.c: 393: }
 [e :UE 573 ]
 }
-"398
-[; ;main.c: 398: void ignition_disable(void) {
+"399
+[; ;main.c: 399: void ignition_disable(void) {
 [v _ignition_disable `(v ~T0 @X0 1 ef ]
 {
 [e :U _ignition_disable ]
 [f ]
-"399
-[; ;main.c: 399:     ccp2_disable();
-[e ( _ccp2_disable ..  ]
 "400
-[; ;main.c: 400:     LATC2 = (1);
-[e = _LATC2 -> -> 1 `i `b ]
+[; ;main.c: 400:     ccp2_disable();
+[e ( _ccp2_disable ..  ]
 "401
-[; ;main.c: 401:     orev_counter = 0;
-[e = _orev_counter -> -> 0 `i `uc ]
+[; ;main.c: 401:     LATC2 = (1);
+[e = _LATC2 -> -> 1 `i `b ]
 "402
-[; ;main.c: 402:     ccp1_enable();
-[e ( _ccp1_enable ..  ]
+[; ;main.c: 402:     orev_counter = 0;
+[e = _orev_counter -> -> 0 `i `uc ]
 "403
-[; ;main.c: 403: }
+[; ;main.c: 403:     ccp1_enable();
+[e ( _ccp1_enable ..  ]
+"404
+[; ;main.c: 404: }
 [e :UE 606 ]
 }
-"409
-[; ;main.c: 409: void ccp1_enable(void) {
+"410
+[; ;main.c: 410: void ccp1_enable(void) {
 [v _ccp1_enable `(v ~T0 @X0 1 ef ]
 {
 [e :U _ccp1_enable ]
 [f ]
-"410
-[; ;main.c: 410:     CCP1IE = 0;
-[e = _CCP1IE -> -> 0 `i `b ]
 "411
-[; ;main.c: 411:     CCP1IF = 0;
-[e = _CCP1IF -> -> 0 `i `b ]
+[; ;main.c: 411:     CCP1IE = 0;
+[e = _CCP1IE -> -> 0 `i `b ]
 "412
-[; ;main.c: 412:     CCP1CON = 0x84;
-[e = _CCP1CON -> -> 132 `i `uc ]
+[; ;main.c: 412:     CCP1IF = 0;
+[e = _CCP1IF -> -> 0 `i `b ]
 "413
-[; ;main.c: 413:     CCP1IE = 1;
-[e = _CCP1IE -> -> 1 `i `b ]
+[; ;main.c: 413:     CCP1CON = 0x84;
+[e = _CCP1CON -> -> 132 `i `uc ]
 "414
-[; ;main.c: 414: }
+[; ;main.c: 414:     CCP1IE = 1;
+[e = _CCP1IE -> -> 1 `i `b ]
+"415
+[; ;main.c: 415: }
 [e :UE 607 ]
 }
-"420
-[; ;main.c: 420: void ccp1_disable(void) {
+"421
+[; ;main.c: 421: void ccp1_disable(void) {
 [v _ccp1_disable `(v ~T0 @X0 1 ef ]
 {
 [e :U _ccp1_disable ]
 [f ]
-"421
-[; ;main.c: 421:     CCP1IE = 0;
-[e = _CCP1IE -> -> 0 `i `b ]
 "422
-[; ;main.c: 422:     CCP1CON = 0;
-[e = _CCP1CON -> -> 0 `i `uc ]
+[; ;main.c: 422:     CCP1IE = 0;
+[e = _CCP1IE -> -> 0 `i `b ]
 "423
-[; ;main.c: 423: }
+[; ;main.c: 423:     CCP1CON = 0;
+[e = _CCP1CON -> -> 0 `i `uc ]
+"424
+[; ;main.c: 424: }
 [e :UE 608 ]
 }
-"429
-[; ;main.c: 429: void ccp2_enable(void) {
+"430
+[; ;main.c: 430: void ccp2_enable(void) {
 [v _ccp2_enable `(v ~T0 @X0 1 ef ]
 {
 [e :U _ccp2_enable ]
 [f ]
-"430
-[; ;main.c: 430:     CCP2IE = 0;
-[e = _CCP2IE -> -> 0 `i `b ]
 "431
-[; ;main.c: 431:     CCP2IF = 0;
-[e = _CCP2IF -> -> 0 `i `b ]
+[; ;main.c: 431:     CCP2IE = 0;
+[e = _CCP2IE -> -> 0 `i `b ]
 "432
-[; ;main.c: 432:     CCP2CON = 0x88;
-[e = _CCP2CON -> -> 136 `i `uc ]
+[; ;main.c: 432:     CCP2IF = 0;
+[e = _CCP2IF -> -> 0 `i `b ]
 "433
-[; ;main.c: 433:     CCP2IE = 1;
-[e = _CCP2IE -> -> 1 `i `b ]
+[; ;main.c: 433:     CCP2CON = 0x88;
+[e = _CCP2CON -> -> 136 `i `uc ]
 "434
-[; ;main.c: 434: }
+[; ;main.c: 434:     CCP2IE = 1;
+[e = _CCP2IE -> -> 1 `i `b ]
+"435
+[; ;main.c: 435: }
 [e :UE 609 ]
 }
-"440
-[; ;main.c: 440: void ccp2_disable(void) {
+"441
+[; ;main.c: 441: void ccp2_disable(void) {
 [v _ccp2_disable `(v ~T0 @X0 1 ef ]
 {
 [e :U _ccp2_disable ]
 [f ]
-"441
-[; ;main.c: 441:     CCP2IE = 0;
-[e = _CCP2IE -> -> 0 `i `b ]
 "442
-[; ;main.c: 442:     CCP2CON = 0;
-[e = _CCP2CON -> -> 0 `i `uc ]
+[; ;main.c: 442:     CCP2IE = 0;
+[e = _CCP2IE -> -> 0 `i `b ]
 "443
-[; ;main.c: 443: }
+[; ;main.c: 443:     CCP2CON = 0;
+[e = _CCP2CON -> -> 0 `i `uc ]
+"444
+[; ;main.c: 444: }
 [e :UE 610 ]
 }
-"449
-[; ;main.c: 449: void initialize_system(void) {
+"450
+[; ;main.c: 450: void initialize_system(void) {
 [v _initialize_system `(v ~T0 @X0 1 ef ]
 {
 [e :U _initialize_system ]
 [f ]
-"451
-[; ;main.c: 451:     OSCEN = 0x40;
-[e = _OSCEN -> -> 64 `i `uc ]
 "452
-[; ;main.c: 452:     OSCFRQ = 0x05;
-[e = _OSCFRQ -> -> 5 `i `uc ]
+[; ;main.c: 452:     OSCEN = 0x40;
+[e = _OSCEN -> -> 64 `i `uc ]
 "453
-[; ;main.c: 453:     OSCTUNE = 0X00;
+[; ;main.c: 453:     OSCFRQ = 0x05;
+[e = _OSCFRQ -> -> 5 `i `uc ]
+"454
+[; ;main.c: 454:     OSCTUNE = 0X00;
 [e = _OSCTUNE -> -> 0 `i `uc ]
-"456
-[; ;main.c: 456:     PORTA = 0x00;
-[e = _PORTA -> -> 0 `i `uc ]
 "457
-[; ;main.c: 457:     PORTB = 0x00;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main.c: 457:     PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
 "458
-[; ;main.c: 458:     PORTC = 0x00;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 458:     PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
 "459
-[; ;main.c: 459:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
+[; ;main.c: 459:     PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
 "460
-[; ;main.c: 460:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 460:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
 "461
-[; ;main.c: 461:     LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
+[; ;main.c: 461:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
 "462
-[; ;main.c: 462:     ANSELA = 0x00;
-[e = _ANSELA -> -> 0 `i `uc ]
+[; ;main.c: 462:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
 "463
-[; ;main.c: 463:     ANSELB = 0x00;
-[e = _ANSELB -> -> 0 `i `uc ]
+[; ;main.c: 463:     ANSELA = 0x00;
+[e = _ANSELA -> -> 0 `i `uc ]
 "464
-[; ;main.c: 464:     ANSELC = 0x00;
+[; ;main.c: 464:     ANSELB = 0x00;
+[e = _ANSELB -> -> 0 `i `uc ]
+"465
+[; ;main.c: 465:     ANSELC = 0x00;
 [e = _ANSELC -> -> 0 `i `uc ]
-"467
-[; ;main.c: 467:     TRISA = 0b00110100;
-[e = _TRISA -> -> 52 `i `uc ]
 "468
-[; ;main.c: 468:     TRISB = 0b10110000;
-[e = _TRISB -> -> 176 `i `uc ]
+[; ;main.c: 468:     TRISA = 0b00110100;
+[e = _TRISA -> -> 52 `i `uc ]
 "469
-[; ;main.c: 469:     TRISC = 0b11111001;
-[e = _TRISC -> -> 249 `i `uc ]
+[; ;main.c: 469:     TRISB = 0b10110000;
+[e = _TRISB -> -> 176 `i `uc ]
 "470
-[; ;main.c: 470:     INLVLA = 0b00110100;
-[e = _INLVLA -> -> 52 `i `uc ]
+[; ;main.c: 470:     TRISC = 0b11111001;
+[e = _TRISC -> -> 249 `i `uc ]
 "471
-[; ;main.c: 471:     INLVLB = 0b10110000;
-[e = _INLVLB -> -> 176 `i `uc ]
+[; ;main.c: 471:     INLVLA = 0b00110100;
+[e = _INLVLA -> -> 52 `i `uc ]
 "472
-[; ;main.c: 472:     INLVLC = 0b11111001;
+[; ;main.c: 472:     INLVLB = 0b10110000;
+[e = _INLVLB -> -> 176 `i `uc ]
+"473
+[; ;main.c: 473:     INLVLC = 0b11111001;
 [e = _INLVLC -> -> 249 `i `uc ]
-"475
-[; ;main.c: 475:     T1CLK = 0b00000001;
-[e = _T1CLK -> -> 1 `i `uc ]
 "476
-[; ;main.c: 476:     T1CON = 0b00110000;
-[e = _T1CON -> -> 48 `i `uc ]
+[; ;main.c: 476:     T1CLK = 0b00000001;
+[e = _T1CLK -> -> 1 `i `uc ]
 "477
-[; ;main.c: 477:     TMR1 = 0x0000;
+[; ;main.c: 477:     T1CON = 0b00110000;
+[e = _T1CON -> -> 48 `i `uc ]
+"478
+[; ;main.c: 478:     TMR1 = 0x0000;
 [e = _TMR1 -> -> 0 `i `us ]
-"482
-[; ;main.c: 482:     CCP1CAP = 0x0;
-[e = _CCP1CAP -> -> 0 `i `uc ]
 "483
-[; ;main.c: 483:     CCP2CAP = 0x0;
-[e = _CCP2CAP -> -> 0 `i `uc ]
+[; ;main.c: 483:     CCP1CAP = 0x0;
+[e = _CCP1CAP -> -> 0 `i `uc ]
 "484
-[; ;main.c: 484:     CCPR1 = 0x0000;
-[e = _CCPR1 -> -> 0 `i `us ]
+[; ;main.c: 484:     CCP2CAP = 0x0;
+[e = _CCP2CAP -> -> 0 `i `uc ]
 "485
-[; ;main.c: 485:     CCPR2 = 0x0000;
+[; ;main.c: 485:     CCPR1 = 0x0000;
+[e = _CCPR1 -> -> 0 `i `us ]
+"486
+[; ;main.c: 486:     CCPR2 = 0x0000;
 [e = _CCPR2 -> -> 0 `i `us ]
-"488
-[; ;main.c: 488:     IOCAN2 = 1;
+"489
+[; ;main.c: 489:     IOCAN2 = 1;
 [e = _IOCAN2 -> -> 1 `i `b ]
-"491
-[; ;main.c: 491:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
 "492
-[; ;main.c: 492:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"493
-[; ;main.c: 493:     PPSLOCKbits.PPSLOCKED = 0;
-[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"494
-[; ;main.c: 494:     CCP1PPS = 0x10;
-[e = _CCP1PPS -> -> 16 `i `uc ]
-"495
-[; ;main.c: 495:     CCP2PPS = 0b00010001;
-[e = _CCP2PPS -> -> 17 `i `uc ]
-"496
-[; ;main.c: 496:     RC1PPS = 0x02;
-[e = _RC1PPS -> -> 2 `i `uc ]
-"497
-[; ;main.c: 497:     RX1PPS = 0x0F;
-[e = _RX1PPS -> -> 15 `i `uc ]
-"498
-[; ;main.c: 498:     RB6PPS = 0x05;
-[e = _RB6PPS -> -> 5 `i `uc ]
-"499
-[; ;main.c: 499:     PPSLOCK = 0x55;
+[; ;main.c: 492:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
-"500
-[; ;main.c: 500:     PPSLOCK = 0xAA;
+"493
+[; ;main.c: 493:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
+"494
+[; ;main.c: 494:     PPSLOCKbits.PPSLOCKED = 0;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+"495
+[; ;main.c: 495:     CCP1PPS = 0x10;
+[e = _CCP1PPS -> -> 16 `i `uc ]
+"496
+[; ;main.c: 496:     CCP2PPS = 0b00010001;
+[e = _CCP2PPS -> -> 17 `i `uc ]
+"497
+[; ;main.c: 497:     RC1PPS = 0x02;
+[e = _RC1PPS -> -> 2 `i `uc ]
+"498
+[; ;main.c: 498:     RX1PPS = 0x0F;
+[e = _RX1PPS -> -> 15 `i `uc ]
+"499
+[; ;main.c: 499:     RB6PPS = 0x05;
+[e = _RB6PPS -> -> 5 `i `uc ]
+"500
+[; ;main.c: 500:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
 "501
-[; ;main.c: 501:     PPSLOCKbits.PPSLOCKED = 1;
+[; ;main.c: 501:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"502
+[; ;main.c: 502:     PPSLOCKbits.PPSLOCKED = 1;
 [e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"504
-[; ;main.c: 504:     BAUD1CON = 0x00;
-[e = _BAUD1CON -> -> 0 `i `uc ]
 "505
-[; ;main.c: 505:     RC1STA = 0x00;
-[e = _RC1STA -> -> 0 `i `uc ]
+[; ;main.c: 505:     BAUD1CON = 0x00;
+[e = _BAUD1CON -> -> 0 `i `uc ]
 "506
-[; ;main.c: 506:     TX1STA = 0x00;
-[e = _TX1STA -> -> 0 `i `uc ]
+[; ;main.c: 506:     RC1STA = 0x00;
+[e = _RC1STA -> -> 0 `i `uc ]
 "507
-[; ;main.c: 507:     SP1BRGL = 0x00;
-[e = _SP1BRGL -> -> 0 `i `uc ]
+[; ;main.c: 507:     TX1STA = 0x00;
+[e = _TX1STA -> -> 0 `i `uc ]
 "508
-[; ;main.c: 508:     SP1BRGH = 0x00;
+[; ;main.c: 508:     SP1BRGL = 0x00;
+[e = _SP1BRGL -> -> 0 `i `uc ]
+"509
+[; ;main.c: 509:     SP1BRGH = 0x00;
 [e = _SP1BRGH -> -> 0 `i `uc ]
-"510
-[; ;main.c: 510:     BAUD1CON = 0x40;
+"511
+[; ;main.c: 511:     BAUD1CON = 0x40;
 [e = _BAUD1CON -> -> 64 `i `uc ]
-"512
-[; ;main.c: 512:     RC1STA = 0x80;
+"513
+[; ;main.c: 513:     RC1STA = 0x80;
 [e = _RC1STA -> -> 128 `i `uc ]
-"514
-[; ;main.c: 514:     TX1STA = 0x26;
-[e = _TX1STA -> -> 38 `i `uc ]
-"516
-[; ;main.c: 516:     SP1BRGL = 0x22;
-[e = _SP1BRGL -> -> 34 `i `uc ]
-"518
-[; ;main.c: 518:     SP1BRGH = 0x0;
+"515
+[; ;main.c: 515:     TX1STA = 0x22;
+[e = _TX1STA -> -> 34 `i `uc ]
+"517
+[; ;main.c: 517:     SP1BRGL = 0x33;
+[e = _SP1BRGL -> -> 51 `i `uc ]
+"519
+[; ;main.c: 519:     SP1BRGH = 0x0;
 [e = _SP1BRGH -> -> 0 `i `uc ]
-"521
-[; ;main.c: 521:     WDTCON = 0x13;
+"522
+[; ;main.c: 522:     WDTCON = 0x13;
 [e = _WDTCON -> -> 19 `i `uc ]
-"524
-[; ;main.c: 524:     PIR0 = 0x0;
-[e = _PIR0 -> -> 0 `i `uc ]
 "525
-[; ;main.c: 525:     PIR1 = 0x0;
-[e = _PIR1 -> -> 0 `i `uc ]
+[; ;main.c: 525:     PIR0 = 0x0;
+[e = _PIR0 -> -> 0 `i `uc ]
 "526
-[; ;main.c: 526:     PIR2 = 0x0;
+[; ;main.c: 526:     PIR1 = 0x0;
+[e = _PIR1 -> -> 0 `i `uc ]
+"527
+[; ;main.c: 527:     PIR2 = 0x0;
 [e = _PIR2 -> -> 0 `i `uc ]
-"529
-[; ;main.c: 529:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
 "530
-[; ;main.c: 530:     PEIE = 1;
-[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 530:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "531
-[; ;main.c: 531:     CCP1IE = 1;
-[e = _CCP1IE -> -> 1 `i `b ]
+[; ;main.c: 531:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
 "532
-[; ;main.c: 532:     CCP2IE = 1;
-[e = _CCP2IE -> -> 1 `i `b ]
+[; ;main.c: 532:     CCP1IE = 1;
+[e = _CCP1IE -> -> 1 `i `b ]
 "533
-[; ;main.c: 533:     TMR1IE = 1;
-[e = _TMR1IE -> -> 1 `i `b ]
+[; ;main.c: 533:     CCP2IE = 1;
+[e = _CCP2IE -> -> 1 `i `b ]
 "534
-[; ;main.c: 534:     IOCIE = 1;
+[; ;main.c: 534:     TMR1IE = 1;
+[e = _TMR1IE -> -> 1 `i `b ]
+"535
+[; ;main.c: 535:     IOCIE = 1;
 [e = _IOCIE -> -> 1 `i `b ]
-"536
-[; ;main.c: 536:     ccp2_disable();
-[e ( _ccp2_disable ..  ]
 "537
-[; ;main.c: 537:     LATC1 = 0;
-[e = _LATC1 -> -> 0 `i `b ]
+[; ;main.c: 537:     ccp2_disable();
+[e ( _ccp2_disable ..  ]
 "538
-[; ;main.c: 538: }
+[; ;main.c: 538:     LATC1 = 0;
+[e = _LATC1 -> -> 0 `i `b ]
+"539
+[; ;main.c: 539: }
 [e :UE 611 ]
 }
 [p f _sprintf 8388736 ]

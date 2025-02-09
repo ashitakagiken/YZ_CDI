@@ -6448,12 +6448,12 @@ uint24_t deg2time_coeff[131] = {
 uint8_t rpm = 0;
 uint8_t orev_counter = 0;
 uint16_t ig_counter = 0;
-uint16_t pu1_2_period_count;
+uint16_t t1_count = 0;
+uint16_t pu1_2_period_count = 0;
 uint8_t map_sel = 0;
 uint8_t EG_state = 0;
 uint8_t revlimit_state = 0;
 uint8_t pwj_state = 0;
-uint8_t test = 0;
 const uint16_t numerator_rpm = 37500;
 uint8_t sw1_pos = 2;
 uint8_t sw2_pos = 3;
@@ -6483,12 +6483,12 @@ void main() {
 
 
 void Write_table() {
-    uint8_t tx_data[6], a;
+    uint8_t tx_data[8], a;
 
     tx_buf[0] = rpm;
     tx_buf[1] = deg_table[rpm];
     tx_buf[2] = ig_counter;
-    tx_buf[3] = pu1_2_period_count;
+    tx_buf[3] = t1_count;
     tx_buf[4] = PORTAbits.RA0;
     tx_buf[5] = EG_state;
     for (a = 0; a <= 5; a++) {
@@ -6603,7 +6603,6 @@ void check_sw_state() {
 
 
 void __attribute__((picinterrupt(("")))) InterruptManager() {
-    uint16_t t1_count;
 
     if (CCP1IF) {
         if (EG_state == EG_RUN) {
@@ -6612,10 +6611,11 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
             TMR1L = 0x00;
             TMR1ON = 1;
             ccp1_disable();
+            t1_count = CCPR1;
 
-            rpm = (uint8_t) (numerator_rpm / (CCPR1 >> 4));
+            rpm = (uint8_t) (numerator_rpm / (t1_count >> 4));
 
-            if ((rpm > (15))&&(rpm <= (130))) {
+            if ((rpm > (10))&&(rpm <= (130))) {
                 ig_counter = IG_table[rpm];
                 LATC2 = (0);
                 if ((ig_counter - 15) > TMR1) {
@@ -6652,10 +6652,10 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
                 if (rpm > (30)) LATA0 = 1;
                 else if (rpm < (28)) LATA0 = 0;
             }
-        }
-
-        if (EG_state == EG_LOW) {
-            TMR1 = 0;
+        } else if (EG_state == EG_LOW) {
+            TMR1ON = 0;
+            TMR1H = 0x00;
+            TMR1L = 0x00;
             TMR1ON = 1;
             EG_state = EG_RUN;
         }
@@ -6684,9 +6684,10 @@ void __attribute__((picinterrupt(("")))) InterruptManager() {
     }
 
     if (TMR1IF) {
-        EG_state = EG_LOW;
+
         TMR1ON = 0;
-        TMR1 = 0;
+        TMR1H = 0x00;
+        TMR1L = 0x00;
         CCPR1 = 0;
         CCPR2 = 0;
         TMR1IF = 0;
@@ -6817,12 +6818,11 @@ void initialize_system(void) {
 
     RC1STA = 0x80;
 
-    TX1STA = 0x22;
+    TX1STA = 0x26;
 
-    SP1BRGL = 0x33;
+    SP1BRGL = 0x22;
 
     SP1BRGH = 0x0;
-
 
 
     WDTCON = 0x13;

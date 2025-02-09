@@ -47,7 +47,6 @@ void SYSTEM_Initialize(void)
     EUSART1_Initialize();
     Timer0_Initialize();
     Timer1_Initialize();
-    WDT_Initialize();
     INTERRUPT_Initialize();
 }
 

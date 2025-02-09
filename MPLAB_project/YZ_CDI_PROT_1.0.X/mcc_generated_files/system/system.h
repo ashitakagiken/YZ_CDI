@@ -47,7 +47,6 @@
 #include "../uart/eusart1.h"
 #include "../timer/tmr0.h"
 #include "../timer/tmr1.h"
-#include "../system/watchdog.h"
 #include "../system/interrupt.h"
 #include "../system/clock.h"
 
