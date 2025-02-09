@@ -328,13 +328,15 @@ void __interrupt() InterruptManager() {
 
             //Rev limit controll
             if (revlimit_state == REVLIMIT_ENABLE) {
-                if (rpm > REVLIMIT_L) {
+                if ((rpm > REVLIMIT_L)&&(rpm < REVLIMIT_M)) {
+                    orev_counter++;
+                    if (orev_counter == 3) ignition_disable();
+                }
+                if ((rpm >= REVLIMIT_M)&&(rpm < REVLIMIT_H)) {
                     orev_counter++;
                     if (orev_counter == 2) ignition_disable();
-                } else if (rpm > REVLIMIT_M) {
-                    orev_counter++;
-                    if (orev_counter == 2) ignition_disable();
-                } else if (rpm > REVLIMIT_H) ignition_disable();
+                }
+                if (rpm >= REVLIMIT_H) ignition_disable();
             }
 
             //Power jet controll
@@ -535,4 +537,5 @@ void initialize_system(void) {
     TMR1IE = 1;
     IOCIE = 1;
     IGOUT = 0;
+
 }

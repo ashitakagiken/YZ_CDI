@@ -64,18 +64,18 @@ EG_RUN 1
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
 "298
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
-"399
+"401
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
-"410
+"412
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
-"421
+"423
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
-"431
+"433
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-"442
+"444
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
-"451
+"453
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 "446 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f15245.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -291,20 +291,20 @@ EG_RUN 1
 {
 "172
 } 0
-"451
+"453
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 {
-"538
+"541
 } 0
 "269
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
 {
 "292
 } 0
-"410
+"412
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"415
+"417
 } 0
 "218
 [v _calc_map calc_map `(v  1 e 1 0 ]
@@ -486,7 +486,7 @@ EG_RUN 1
 "298
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 {
-"393
+"395
 } 0
 "218
 [v i1_calc_map calc_map `(v  1 e 1 0 ]
@@ -544,28 +544,28 @@ EG_RUN 1
 [v i1___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"399 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"401 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
 {
-"404
+"406
 } 0
-"410
+"412
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"415
+"417
 } 0
-"442
+"444
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 {
-"445
+"447
 } 0
-"431
+"433
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
 {
-"436
+"438
 } 0
-"421
+"423
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
 {
-"425
+"427
 } 0
