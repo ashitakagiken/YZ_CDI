@@ -165,6 +165,7 @@ void main() {
     check_sw_state();
     calc_map();
     ccp1_enable();
+    ccp2_disable();
     while (1) {
         check_sw_state();
         Write_table();
@@ -354,7 +355,8 @@ void __interrupt() InterruptManager() {
             TMR1ON = 1;
             EG_state = EG_RUN;
         }
-        CCP1IF = 0;
+        ccp1_enable();
+        //Write_table();
     }
     //ignition by CCP2 compare mode.ignition is done automaticaly by CCP2
     if (CCP2IF) {
@@ -422,7 +424,7 @@ void ccp1_enable(void) {
 
 void ccp1_disable(void) {
     CCP1IE = 0;
-    //CCP1IF = 0;
+    CCP1IF = 0;
     CCP1CON = 0;
 }
 
@@ -443,6 +445,7 @@ void ccp2_enable(void) {
 
 void ccp2_disable(void) {
     CCP2IE = 0;
+    CCP2IF = 0;
     CCP2CON = 0;
 }
 
@@ -537,5 +540,4 @@ void initialize_system(void) {
     TMR1IE = 1;
     IOCIE = 1;
     IGOUT = 0;
-
 }
