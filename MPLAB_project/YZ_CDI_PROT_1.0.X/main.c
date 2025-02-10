@@ -522,7 +522,7 @@ void initialize_system(void) {
     SP1BRGH = 0x0;
 
     //Watch dog timer setting
-    WDTCON = 0x13; //512ms interval
+    WDTCON = 0x0F; //128ms interval
 
     //Clear all interrupt flag
     PIR0 = 0x0;
