@@ -64,19 +64,19 @@ EG_RUN 1
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
 "299
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
-"403
+"405
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
-"414
+"416
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
-"425
+"427
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
-"435
+"437
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
-"446
+"448
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 [v i1_ccp2_disable ccp2_disable `(v  1 e 1 0 ]
-"456
+"458
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 "446 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16F1xxxx_DFP/1.24.387/xc8\pic\include\proc\pic16f15245.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -269,8 +269,6 @@ EG_RUN 1
 [v _ig_counter ig_counter `us  1 e 2 0 ]
 "145
 [v _t1_count t1_count `us  1 e 2 0 ]
-"146
-[v _pu1_2_period_count pu1_2_period_count `us  1 e 2 0 ]
 "148
 [v _EG_state EG_state `uc  1 e 1 0 ]
 "149
@@ -292,25 +290,25 @@ EG_RUN 1
 {
 "173
 } 0
-"456
+"458
 [v _initialize_system initialize_system `(v  1 e 1 0 ]
 {
-"543
+"545
 } 0
 "270
 [v _check_sw_state check_sw_state `(v  1 e 1 0 ]
 {
 "293
 } 0
-"446
+"448
 [v _ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 {
-"450
+"452
 } 0
-"414
+"416
 [v _ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"419
+"421
 } 0
 "219
 [v _calc_map calc_map `(v  1 e 1 0 ]
@@ -492,7 +490,7 @@ EG_RUN 1
 "299
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 {
-"397
+"399
 } 0
 "219
 [v i1_calc_map calc_map `(v  1 e 1 0 ]
@@ -550,28 +548,28 @@ EG_RUN 1
 [v i1___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"403 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
+"405 C:\Users\hkzyk\Documents\YZ_CDI\MPLAB_project\YZ_CDI\MPLAB_project\YZ_CDI_PROT_1.0.X\main.c
 [v _ignition_disable ignition_disable `(v  1 e 1 0 ]
 {
-"408
+"410
 } 0
-"446
+"448
 [v i1_ccp2_disable ccp2_disable `(v  1 e 1 0 ]
 {
-"450
+"452
 } 0
-"414
+"416
 [v i1_ccp1_enable ccp1_enable `(v  1 e 1 0 ]
 {
-"419
+"421
 } 0
-"435
+"437
 [v _ccp2_enable ccp2_enable `(v  1 e 1 0 ]
 {
-"440
+"442
 } 0
-"425
+"427
 [v _ccp1_disable ccp1_disable `(v  1 e 1 0 ]
 {
-"429
+"431
 } 0

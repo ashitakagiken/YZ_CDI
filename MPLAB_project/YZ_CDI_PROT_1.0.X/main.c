@@ -112,9 +112,9 @@ typedef enum {
 #define deg2time_coefficient    (1667)  //For calculate ignition deg to waiting time from PU1 (600,000/360)=1667
 
 const uint8_t adv_start_rpm_table[4] = {45, 35, 25, 15}; //*100rpm
-const uint16_t max_adv_table[4] = {PU2_deg + 2000, PU2_deg + 1600, PU2_deg + 1200, PU2_deg + 800}; //deg
+const uint16_t max_adv_table[4] = {PU2_deg + 1400, PU2_deg + 1000, PU2_deg + 600, PU2_deg + 200}; //deg
 const uint8_t max_adv_grad_table[4] = {40, 30, 20, 10}; //*100rpm
-const uint16_t min_ret_table[4] = {PU2_deg + 1000, PU2_deg + 800, PU2_deg + 600, PU2_deg + 400};
+const uint16_t min_ret_table[4] = {PU2_deg + 800, PU2_deg + 600, PU2_deg + 400, PU2_deg + 200};
 
 //-------------------------------
 // Ignition map
@@ -371,12 +371,14 @@ void __interrupt() InterruptManager() {
     //Prevent reverse rotation  ex)stop at hill climbe
     if (IOCAF2) {
         if (EG_state == EG_RUN) {
+            /*
             pu1_2_period_count = TMR1;
             if ((rpm < 25)&&((t1_count - pu1_2_period_count)<(pu1_2_period_count << 2))) {
                 IGEN = IG_DISABLE;
             }
-            ccp1_enable();
-            if (rpm < 40) calc_map();
+             */
+            //ccp1_enable();
+            //if (rpm < 20) calc_map();
         }
         IOCAF2 = 0;
     }
